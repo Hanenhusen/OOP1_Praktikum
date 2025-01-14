@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<meta name="headingType" content="2" /> 
+	<meta name="headingStartValue" content="2" /> 
+
+<title>_2_Schleifen</title>
+<style>
+body { 
+    font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    display: flex;
+}
+.marginalia {
+    height: 100%;
+    flex: 0 0 70px;
+    display: inline-block;
+    position: relative;
+}
+.main-content {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 645px;
+}
+.code-wrap {
+    margin-left: 10px;
+}
+.class-content {
+    font-family: Consolas,monaco,monospace; 
+}
+
+
+/* -- content types -- */
+.code {
+    color: #666;
+    font-family: Consolas,monaco,monospace; 
+    padding: 5px;
+}
+.graphic.no-edit {
+    border: hsl(200, 100%, 97%) 1px solid;
+    overflow: hidden;
+}
+.hint.no-edit .title {
+    vertical-align: top;
+    font-weight: bold;
+}
+.hint.no-edit .header .wrap {
+    border-bottom: 2px solid hsl(214, 38%, 59%);
+}
+.hint.no-edit .hint {
+    display: none;
+}
+.hint.no-edit::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    background-color: hsl(196, 100%, 47%);
+    height: 25px;
+    width: 22px;
+}
+
+
+/* -- text decorations -- */
+.underline { 
+    text-decoration: underline; 
+}
+.strikethrough { 
+    text-decoration: line-through; 
+}
+a {
+    color: hsl(196, 100%, 47%);
+}
+
+
+/* -- task links -- */
+.task-link {
+    color: hsl(196, 100%, 47%);
+    font-weight: bold;
+    padding: 0 2px;
+    line-height: 26px;
+    cursor: pointer;
+    pointer-events: none;
+}
+.task-link::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    background-color: hsl(196, 100%, 47%);
+    height: 18px;
+    width: 18px;
+    margin-top: 6px;
+}
+.task-link.main::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.def::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.exec::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.text::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+}
+.task-link.action::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+}
+
+
+/* -- ratings -- */
+.task-link.rating-good::after, .task-link.rating-mid::after, .task-link.rating-bad::after{
+    content: "";
+    left: 8px;
+    position: absolute;
+    pointer-events: none;
+    height: 22px;
+    width: 22px;
+    padding-top: 5px;
+}
+.task-link.rating-good::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(120, 70%, 40%);
+}
+.task-link.rating-mid::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(50, 100%, 45%);
+}
+.task-link.rating-bad::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(0, 100%, 45%);
+}
+
+
+/* -- textmarkers -- */
+.hilitecolor1 {
+    background-color: hsl(50, 100%, 80%);
+}
+.hilitecolor2 {
+    background-color: hsl(200, 100%, 80%);
+}
+.hilitecolor3 {
+    background-color: hsl(120, 100%, 80%);
+}
+.hilitecolor4 {
+    background-color: hsl(0, 100%, 80%);
+}
+.hilitesolution {
+    background-color: hsl(196, 100%, 47%, 30%);
+    font-style: italic;
+}
+
+
+/* -- headings -- */
+h1, h2, h3 {
+    color: hsl(209, 60%, 45%);
+}
+h1[data-number]:before, h2[data-number]:before, h3[data-number]:before {
+    content: attr(data-number);
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+
+/* -- skill/concept map -- */
+.skill.no-edit {           
+    cursor: initial !important;
+    padding-top: 7px;
+}
+.skill.no-edit .skill {
+    display: inline-block;
+    margin: 0px 5px 2px 5px;
+    position: relative;
+}
+.skill.no-edit .skill .container {
+    min-height: 27px;
+    display: table;
+    border: 2px solid;
+}
+.skill.no-edit .skill .container .block {
+    font-size: 14px;
+    display: table-cell;
+    min-width: 19px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 6px 0px 4px;
+    color: hsl(196, 100%, 97%);
+}
+.skill.no-edit .skill .container .content {
+    padding: 2px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+.skill.no-edit .skill .container .content span {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.skill.no-edit .skill .container .content .text {
+    vertical-align: -1px;
+}
+.skill.no-edit .skill .container.concept {
+    border-color: hsl(282, 40%, 67%) !important;
+}
+.skill.no-edit .skill .container.concept .block {
+    background-color: hsl(282, 40%, 67%);
+}
+.skill.no-edit .skill .container.concept.attr_certificate {
+    border-color: hsl(282, 40%, 47%) !important;
+}
+.skill.no-edit .skill .container.concept.attr_certificate .block.attr_certificate {
+    background-color: hsl(282, 40%, 47%);
+}
+.skill.no-edit .skill .container.syntax {
+    border-color: hsl(256, 43%, 67%) !important;
+}
+.skill.no-edit .skill .container.syntax .block {
+    background-color: hsl(256, 43%, 67%);
+}
+.skill.no-edit .skill .container.syntax.attr_certificate {
+    border-color: hsl(256, 43%, 47%) !important;
+}
+.skill.no-edit .skill .container.syntax.attr_certificate .block.attr_certificate {
+    background-color: hsl(256, 43%, 47%);
+}
+
+</style>
+<script>
+    window.onload = function() {
+        if (window.location.hash) {
+            let id = window.location.hash.substring(1);
+            let anchor = document.getElementsByClassName(id);
+            if (anchor[0]) {
+            let top = anchor[0].offsetTop;
+            window.scrollTo(0, top);
+            }
+        }
+        let links = document.querySelectorAll(".task-link");
+        for (let i = 0; i < links.length; i++) {
+            links[i].onclick = function(event) {
+                if (event.target.getAttribute("data-href")) {
+                    window.open(event.target.getAttribute("data-href"), "_self");
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div #marginalia class="marginalia"></div>
+
+<div class="main-content">
+<h1 class="e_xfym0h" data-number="2">Schleifen</h1>
+<p>Sie lernen in dieser Aufgabe die verschiedenen Arten von Schleifen in Java kennen.</p>
+<p>Dazu verwenden Sie zunächst sehr einfache Beispiele, in denen Sie nur Reihen von Zahlen auf verschiedene Arten und Weisen erzeugen.</p>
+<p>Da die Beispiele sehr einfach sind, können Sie sich auf den reinen Umgang mit Schleifen konzentrieren. In der nächsten Aufgabe wenden Sie dann Schleifen auch an.</p>
+<p>&nbsp;</p>
+<h2 class="e_2sqsaw" data-number="2.1">Einfache Schleifen</h2>
+<p>Geben Sie in einer Schleife alle Zahlen <code>n</code> von 1 bis 10 (jeweils einschließlich) auf die Konsole aus.</p>
+<p><span class="task-link s_j73ev7 exec">Implementieren Sie diese Schleife als <code>while</code>-Schleife im Code-Rahmen.&nbsp;</span></p>
+<p>&nbsp;</p>
+<h2 class="e_bs6ss6" data-number="2.2">Andere Schrittweiten</h2>
+<p>Geben Sie nun in einer Schleife alle Zahlen <code>n</code> von 20 bis 11 (jeweils einschließlich) in Schritten von 3 aus. Dazu verwenden Sie unterschiedliche Schleifen-Arten</p>
+<p>&nbsp;</p>
+<h3 class="e_k8mv0c" data-number="2.2.1">for-Schleife mit Schrittweite</h3>
+<p><span class="task-link s_4r0cpo exec">Implementieren Sie </span>diese Schleife im Code-Rahmen als <code>for</code>-Schleife</p>
+<p><span class="task-link s_dma5df action">Testen Sie </span>diesen Code jeweils mit verschiedenen (kleinen) Werten für die Schrittweite, z.B.: 3, 8, 12.</p>
+<p>&nbsp;</p>
+<h3 class="e_ayx7jo" data-number="2.2.2">do-while-Schleife mit Schrittweite</h3>
+<p><span class="task-link s_ha9jxv exec">Implementieren Sie </span>diese Schleife im Code-Rahmen als <code>do-while</code>-Schleife</p>
+<p><span class="task-link s_9hm9ad action">Testen Sie diesen Code</span> jeweils mit verschiedenen (kleinen) Werten für die Schrittweite, z.B.: 3, 8, 12.</p>
+<div id="rklx3s" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Erinnerung: Sie können auch nur den selektierten Code ausführen</span></div>
+</div>
+<div class="hint" data-uuid="6jztn3" data-hint="U2FsdGVkX1+CSZUqOaeOduzrBRvOd22ncO2e8WnCheut8kOzVfi3bBlbPurg8mg1THUnP1wMWloIzaa3vmXi3ISHInEsHHmjDMeBiS075viPNOeO/zeEKorVhcf9ojgA3SBREncnF6/PhH/8vNxdWT+xuijrDXKLdgKxZI0IX9aRwIv+g1efaNfVNnHXSXPOJvKWoez2i/uU7Qlx1gWV9CkuEdf+FONBg7zTB4xUQWnVGsYXNIVWZ3Nk2SKgHBIrP0CYVFrBjT3R+53myOmgIUYuJMjbYwPiLC4g2jqt/ZA9UBFiqivBk2gAe7jxNz9kiHeTMNmDuKLG4RNEdTj1scrZYOXborJ2M8GPJKgFl1/yuFJIeLtvntLXXZ2iHs77McIL+e4hXt1hw90VxlXjF8J0cx4CnDCa6NmHaMh7HVXudDjBISUpg64aMUSTH5e2Q++Ei5e1za4nVmT78BLLQO/ynK4p50l8TZuBAs5gnlbKtBkOWTQx6NKTcxWQrVLkcZb3MWc9sObfmhl0/YqrN4oKvUYZIy7l3YsJUpfZEFhnftYOUm9C29Ut/T+RyLJoAU6Ip6Vxe+W5S6MkOsgUzkBUaqhXFt8+jFmz0jhJlpmpLQ5J4OoYprNWqn6qmyle2DHDZ0qHDX4SWtqFV/5Yj/wyd2p9gvG7Zlrm/GGK2z9eczETo2pQnxd7jSzppqvGeJOc5cLq/5uRohQEzaRrNw5gYUWoQ8PVSDuxCYocxHM=">&nbsp;</div>
+<div class="hint" data-uuid="se23gb" data-hint="U2FsdGVkX193t79ZgTCYVzNKF3KvDliAelaZfg9iuSbTp0hfWJSdeOxMxpDPKvnREi3ogc1WF8uBPWAX++aqr0fYQlH2UCSUpG9AIuo5jeoUJsNoSKGUOqugmUq0ERnOfdUg+g2ASn2m59zKO0adRa9X4eFo2lwdMq6adoTH3k6JJKEqwGMCAdGTMslgE/fVj41IcsTwcp6Lwr/89gX8FvRs4kPpcS7yAJoOUbc4S977EFndGOBcljupdDQEjTjHsqC7bDykb8HPyTBl0/AP4p609CZd/YUNwlG+IfXSw79rl93eGH6oR4iDwnzROvXhvayULYRmOlnnaXX5LExzttml26aHcv6NN3mE+MBxMdVEybNAqRtMGNoX9OEp6w8zrNrvpLd65KQBV1s5AMbM2agqmACXOq5d9ZXSMG6LjY8T6jYy8gyAJZDv7eor24CqhORfmQQ+OSXTzcpqWxF2FBgFQqtMGbyxZAeKVx+5pw8zGp55rpPZFMDNcuk4XhXqvp5kPTls+4uBvzQdkgDWPb8h2Qkb3IWoSJREa9gqphjNygdyxFeyjO+llX3XB8MN8OLOkLLEG4OPKfut8b/A11KcpRMLP47MUbIaaoCt077CaHEBpwp8hxtl0v//6B2IUwWt0EQktPHZpP8ExV+G0M/olqU3CEq1Ij6C2qmdYEnVOlc6ewarl5Ye/tw2AwM/djHdgtsVqxGE+ZmdK8085jDen1vXu+L1bcHYmaso+yZArTdOt9c4+WJ5CvUH7+Q3Iw8Zp8AB/Q9QXt+31krcxuo41/ai4N/uB/ySkZzXBywGzEx1XfHbqpoxkdQ9rQKLvXhyqPqiMlZKhB2818LljJxkDITvDN5qQfdeJGjjJBA=">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h2 class="e_elcyw0" data-number="2.3">Fehlermöglichkeiten</h2>
+<p>Nun probieren wir, welche Fähler man beim Schreiben von Schleifen machen kann - damit Sie diese Fehler erkennen und beheben können.</p>
+<p><span class="task-link s_bqbz2f exec">Kopieren Sie</span> dazu den Code der <code>for-</code>Schleife aus der vorherigen Aufgabe <em>in einen Block-Kommentar</em>, um diesen Fehlerfall vom Rest des Code-Rahmens zu trennen.&nbsp;</p>
+<p>Im Folgenden testen Sie in diesem Fehler-Block ein paar Fehlermöglichkeiten.</p>
+<p>&nbsp;</p>
+<h3 class="e_n5i915" data-number="2.3.1">Zugriff auf Schleifenvariable nach der Schleife</h3>
+<p><span class="task-link s_1zten4 action">Geben Sie testweise</span> die Schleifenvariablen <em>nach </em>Ende des Körpers der <code>for</code>-Schleife, d.h. nach der schließenden Klammer } des Blocks, auf die Konsole aus.</p>
+<p><span class="task-link s_q0xxwb text">Welchen Fehler meldet der Compiler nun - und warum?</span></p>
+<div id="pa36f6" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Das ist ein weiteres Feature der Kontrollstruktur "Block"</span></div>
+</div>
+<div class="hint" data-uuid="a7sl1o" data-hint="U2FsdGVkX19Pow1DoNF11kvATT6ixXW4WV6JncrB3de9wp2St+a6bCFQ3LntGNtcvQaO1jd9KXHo8CrUCa3L+Iul6RmG0qk+E5v71SaH673C3KIg8WfgGPR4zDr8YbuO7Yya0sz1Y+8InvWR0H6oz402vBZGbV9FdO3FEA8RlA5IUyfaCudn2Rec/VmarjVIRqW95jp1o3eGONj737/mAIpO7G6zH5EablB8r/ogzppMkA9vOGGnG1GZIoPvPt3Cdvc2T030yk75fjIHV+/bgnFhtynoMW1IyUas2fhGG6WdANeQAFAIDDz3at64eLv4UZHSe8WAdhn8DV/ttyj5SdpKqm5pPuI2xs1V6d1KOOJVY21JbeP9AaV5A+shoIGgA+ZsRMhMaEkGtgW3mrJiv/UNIQ405O7ymhcueBsbd8tyHBN605qRNDRCcLHuv0TQAcP+PjfmQcdZtQlOUWwiwmsw1Ap+wKc2hznw9kU/yTxAd5ogC0cu+yG+7vK2ZSLZJruKa37YE5NxzGmRVsB8HN1n809B8sB5JQkIM4otOFR6dHaHRas0d6u3Q/yoBX/vfGcP2tj/x92gMV148r02S8OSgilCL4sFiuogx07ikkIV0Epi15NeXRpHo48kwUnRoaSIwd9JIRX0BUccrc+HVvnHP1UdGBb8GDi8VHi0NlYh+cTLKBHsgVGfsv/B+L3DRdtr4Rr29oq5w2fOl6K251aeiOUvw1CsfRILzskuxD03vRgvM+FTNVXKWXmhHAWidR9fXNSGdkgQLCdfLuS+uBYntsj6pPYMDFKMgmZRgM6OK/io88KSTSvzXWf1F4b46wDjK750KFOglvmqqjiGY0Z4pTsrY3WqHiOLOMEJT+oUBB7aBgTDOVWo1sZJPUGHoEMwO6L2phXL1/OGcYD3L33OLUcIqouYQzzFPnrYsdToy2oPqzIEgVP0yr9oaOvp9H0FuM58GUv3UbPL8puFjljl9h7DT52pvIqjuLLXO7XQHXDbWGYQa1SdpPKWEzkH807rP+s02ZpL6GvMnlOGCVe7EK8d2KyUjs3vJ3xu/sZC91iW1eevSD5I9ZSpD//CX/idLGdLFdp9Zo6VsFmemDLYWIyMIgWpz6HyLo7wKAkg2zJ1ikaGXQREGDx4+8fTAYNFPcr2UWQ38aoMjOPD2194HL5qDZ3ZYrK2lgR51xr+NQtSqZUOIsLHsRjgJt9+crkjpstGZzPkKaRnVCH6wp3F7zIJI23e81zdm0mTlQMFvEzyh4AEbC3yWLea0KBzUJWczg+nVCz3GevflTQPwx6XJSBr76ER+tpTgqRPHYRkeokc3Iq7TIL97QeG2Nd8TwiHVDoGh+QBDfagD/J7DQ==">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h3 class="e_mi8vnc" data-number="2.3.2">Schleifenvariable heißt wie bestehende Variable</h3>
+<p><span class="task-link s_7pe7gk action">Definieren Sie nun </span><em>vor </em>der fehlerhaften <code>for</code>-Schleife eine Variable, die genauso heißt wie die Schleifenvariable.</p>
+<p><span class="task-link s_ilql7u text">Welchen Fehler meldet der Compiler nun - und warum?</span></p>
+<p>&nbsp;</p>
+<h3 class="e_vo0736" dir="auto" data-sourcepos="16:1-16:77" data-number="2.3.3">Hilfs-Ausgaben für die Orientierung und Übersicht auf der Konsole</h3>
+<p dir="auto" data-sourcepos="18:1-18:127">Allmählich werden die Konsole immer mehr Ausgaben angezeigt. Mit den folgenden Aufgaben produzieren sie immer weiter Ausgaben.</p>
+<p dir="auto" data-sourcepos="20:1-20:330">Tipp: Um die <strong>Übersicht </strong>darüber zu behalten, welche der geforderten Ausgaben zu welcher Aufgabe gehört, ist es eine gute Idee, die <strong>Überschrift der Aufgabe ebenfalls auf die Konsole</strong> auszugeben. Den Text dafür können Sie aus dem automatisch generierten Kommentar kopieren (dabei lassen Sie am besten die /// und den Pfeil aus).</p>
+<p dir="auto" data-sourcepos="22:1-22:9">Beispiel:</p>
+<p dir="auto" data-sourcepos="24:1-24:84"><code>System.out.println("2.3 Fehlermöglichkeiten");</code></p>
+<p>&nbsp;</p>
+<h2 class="e_gixcwx" data-number="2.4">Verschachtelte Schleife</h2>
+<p>Geben Sie das Einmaleins von 1 bis <code>n</code> als Tabelle auf die Konsole aus.</p>
+<p>Beispiel für das Einmaleins von 1 bis 3:</p>
+<p><code>1&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp; &nbsp; 3</code><br><code>2&nbsp; &nbsp; 4&nbsp; &nbsp; 6</code><br><code>3&nbsp; &nbsp; 6&nbsp; &nbsp; 9</code></p>
+<div id="gb8pbl" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Dafür müssen Sie zwei Schleifen verwenden</span></div>
+</div>
+<div class="hint" data-uuid="qrd7qu" data-hint="U2FsdGVkX1+7Lgp+WJdXo+itZiXKyrEXnBPincMKqEbz6d5IMJm1DovIZWEXlNCH/uZA2OLMqOHkorlS0FqAokoSSDMJvkXn1f+m8zmLzz2If3QD7GTaksKjgsn85C/KiY/2Z0fbyFI5jtWSgFg2+6bNeUiwE/mjdRKO1t5nLhQmEeCvUOXh59AN1tI+qlsKX9o8T9X4ncD4fFsjhrEjifrNU/z1eNeKWwW9JCY/RXbE32YEgUcJdBqiui3Ga41Ke5aFauLF+DorMIsFlr5O3/KPiMdF2tZdsNGmr1cSAZyfMgk145jgZenAp2jxLbOgbKESlAbuNl5DxjNFepohpeINi4nnVR3ckUm+ImsxWIPVcdFLl+DZTqpYEJCz2IKaYQzLNAjkYSyIF6Ki8336quwiKdL4YlHkcNrBGMs4QI4m29Ji3gWFI+H7fbr2hgefIf5FXBtvlebSB5vRlgJ8Wd48fIGEOd7sZbSsja8hEaQybJRxjwk710CTMtxWAWe8at92dsAU/awBALgZ5Sp4RYsP6osAQYxqJCeBPL1aG2CWG2yt3NV95+bb4W7TIjJXbvrXe6z2NOyHKN1A1s/emtdCH0wPb4RpimT6Tp6xK9JYdBgNKhSFUcHiSMs/gGD+wKmhl9LcbgM97W+xr2yMJV3iT5LomSu6Cqy3bI8ofo8tE+yMheW6O3b/EM8T28xfPIo05M7RVl6iS2vNyslZxRTKiQZxyW/Z5fXuyNHGNOLiF/vVvQ19XSx6c/z59UKCHIwD8KbGM2PHyO+pHicEw+Qlbi3ANh9ypRDeifrAUuXQUFcOZKtmDnMCiOBSu8GMfn4WkYSNq1TYYB2ozuudaKhmbsSNXmpmpJHjJtDIwStIGY4vjRb4/W4UJXdvELkB+JN8vn+BQnJMBIrfkKM4Yosvi13KhD9B+iKWDTty0dKDG6RNhvsGZ1ZjtoXvBPX6/YFlP4tpvnxyWl4OooPQK4MW0e9mrfxJa1AhqbiW9yznpdKvd67kkQdl7kM/HlnbJctNnOwXhlMWafOhMsuVPA==">&nbsp;</div>
+</div>
+<div id="s4ptg9" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Ordnen Sie die Zahlen möglichst geordnet untereinander an</span></div>
+</div>
+<div class="hint" data-uuid="fvswbh" data-hint="U2FsdGVkX1/30mSqMaBsesAH0SYuRI9lGTkDnYRLAlK8n9LFFjZMB1OkIys8YXh1iaFHrMgvK2LDLTwuTO7HxCyTwW3CxQl4MaYIcp+bYKPC3zkv+eICbbFCFboGGELrsf7FxBNWnUCnMxFYirXf/IwPaqDXnpljIo8NRJ+F+NCO8ryJF0SmLc3uwDvb/Lk02wuH5uEEe9k2AoGajqBlWqgFykwNcBBXCTlLuQW8QM0JDSU2yXGPBqza1srwuhpIBz5dkXmaUaq2y9XWFMVqI7cWLYdWaYy7PzylbuJn50Uy+fnzDmOjgIrvQF8QN4u55l4B/VfrJHdIHnOTz2HWVHpf0Gqw9nhgGJMJjK9rYjmZKbBUhtej5c6vWopl3VF9VwCrfVNEFyXLtD7dTapjBxiTjdtyZArcFV78I0LBL91hXM6i+mFlvaquaaJPB9tjBaUAcgkkktaFmXTh+K3tB6gNfCEHRTvZLWrn9SSYEMZswaMSGbMf9ULtj0zGst2c419+EyA9DP6wg4jfi7mKbztNEEzFkAXdPyFc9vqsQuqZtCaZ37UlZQ296yfN64ZCOr5PwIBhcmnbyFWRY4qPLQzUWBKTvtWMNxw+XUPpG+DwzQncYJL4q8cRT3jNTWMCLWQLx2ohW4xOWsYoH/Ob2yzC+lOjxUCi+TqsZJCoWmxnPIRYNTrezjK21gWjYx1/6DDh+f3xCSSzq+chnmng0zgIEYIyTidwqz+CCta3bdqKcoaju4tDD4v9V+DURZfx">&nbsp;</div>
+<div class="hint" data-uuid="7r8gzf" data-hint="U2FsdGVkX18hJLizxEtY6tsCWoTUXmWTVax9bEXzGUF+Qfu7iTAwJCsYx6rAazUs+0OSOosGI4Z2jSE5hG/BhJDQpbK55CGTYqWJcwqI1RV7ieydeF0tf5j0nQAJqU/9iZIoHreWmnFnTI05uYk09NdatedUWvCNdhZK+SFK3dLcSVPHG12r3R0g9clclI6jcX0G0nSrs90OWN4s/MKJX8ZfDwMjh62W+OdJdp//r5wrQVMiPex69MZkyNnTK4Gxx7ITZ5MTzR3DWD29vvT0EVZ/E0R9nArBCZi9ti0gWuD1SHq5miOKirAU2YVQZjYLDdjbotKcUlG6iXHDOo2ulRL080RWLk9PEfWN+dqxcQ+/E5RBbZBAsMV3J9s1YixhlufDbi1xlLez73mKLc/0Jj2qEr0LCndeobzY7CNUXUus1p/ZF5mwABnuQjP0aUJdABTACLc45p2aY50adR0cJRTddb8Vg2lTniTEjvvMmoPk5+pmKs4iqLYW71cQ55HSb78de5+RC9K5JfFdDccLZ5b4O3URNwbD0MEafcWH8KR49/b42ebTbZLRFTTVDCtyFNjq8RWUpaqiHmeYaCk/kQ7qxiSsbDTsc1UahVlGpQwcBj71y31y6yL13FFFTOYn0BjzeY7gJuUed4bsv9UCnbUWbLoVTIXjBR3mwOSI3l12zqS44v+4MlS9yIbdyHtc5z9cbO8C9JzfCtgcg/SRi50B9eCN/6iRdFjkXMH42XPxtAobl2Uquz32/ypjzsvjvCwlrSCJBTO2vxsSZbBTeQdFUMZbpwSO8RCsN6JbrRpA1UG2L1jaL7GCRSR5lUsH5moj0lLq4p95fW1P8U1a9mrEz7Fo3See7pPxk/i1KcA=">&nbsp;</div>
+</div>
+<p><span class="task-link s_vrcamf exec">Beschreiben Sie</span> zunächst den Code für die Berechnung im Code-Rahmen und <strong>ergänzen Sie </strong>dann den Code dafür.</p>
+<p><span class="task-link s_9wxrig action">Testen Sie</span> diesen Code dann mit kleinen Werten von <code>n </code>(3, 6, 9).</p>
+<p>&nbsp;</p>
+<h2 class="e_7lvev4" data-number="2.5">Einmaleins mit Überschriften</h2>
+<p>Erweitern Sie die Ausgabe des Einmaleins so, dass zusätzlich Überschriften für Zeilen und Spalten ausgegeben werden, z.B. so:</p>
+<p><code>&nbsp;&nbsp; &nbsp; 1&nbsp; &nbsp; 2&nbsp; &nbsp; 3</code></p>
+<p><code>1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp; &nbsp; 2&nbsp; &nbsp; 3</code><br><code>2&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp; &nbsp; 4&nbsp; &nbsp; 6</code><br><code>3&nbsp; &nbsp; 3&nbsp; &nbsp; 6&nbsp; &nbsp; 9</code></p>
+<p><span class="task-link s_qmjx6c exec">Kopieren Sie </span>den bisherigen Code für die Ausgabe der Tabelle und <strong>erweitern Sie ihn entsprechend</strong>.</p>
+<p>&nbsp;</p>
+<div id="t0rpse" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Das Kopieren von Code ist immer mit Vorsicht zu genießen</span></div>
+</div>
+<div class="hint" data-uuid="z281ur" data-hint="U2FsdGVkX1/6pNBjy1Zk8N5iieSb1muMjfPBqMgXinWxYeSz+MPgRh8jnMgYJ6Qwpmx4W26TiZaURrKdNQZVNyRcMIP8Y5RqwUYOFJ8CP0fNlXhTvrVqPfaf3kOmnXDsAx1VtooQssnWRQMNGIOHq5sGKeZbwWZoOeaxCITNC8h0nmuxE6o+di6WaaS2HyqmUKvKMJoNOWVQ6tvOweJQTCARQs/xcm4RSJ/DL1yPm0yjf1NAJYG1nWTmVchiPg1WJYNcaZlB+HJ395go0slnvpTffa+cmKJ51rmBWITuTC/D9l6Ws9ZWiy1AJabceiq55onOeBt+Z6M0LWf9Jow1/O25tc3LSO6AjRhWPLVen6gvXOZoCFaBW/axAbibHHMU89SaNVXo4d5LaY2zBS9jNoSu5hAiDYFEEii8GlcGBaOyJgsJ1gj4i4XXdZpOdUQkE9Eg9LLm/HLwuaT5HQbVlaJMJV1Y3siAmaicO7RN4GCkas4BOR9PBHkdBHkNHyDKSdFIHGyDqrdq+xscGmlGMJeyd2V50wLoTsLNBF4pScVWrnGLyTyrkR+HJBX/Zjx88ycP3DWLVJbGWBhZyahGqutzspSJ4GAvB2e4vrHxtLd5bCrCWem0toMmpVsfSdoL2i/oPhCZowFh8cqExcu+jjIHYQEYA1YT7RFFWP6JmmbGKqzLqfYYQafSugGZ6m0O82h8+5ODwNFUEqX+7eNz+bB7PO2DsflzUjUc/BVSslhgD/zyj+xqzb9+pwGWOmZ5Is1rBGG1K+i/IBPW/xu7HJlyLpCCqQefzBa6G/91lWnq/TGKwunKIdlFOFnMZyOPxSYqRS7dz8x6b7ZLK0rOgzPpwxnMsdauA9tGo/xnEytaoLbNr9RcUUevcudh6rms6G56fdfqMqa2SJBhHCVUXjoGD3gUlEoWPo3Fq4qC1nSPjR86nzptdlql50fg0ggH8g1T+xnoZ9XP+scfSYeuVpmqgBblHU3zfEF86pd2IGzj6p6k8U2qVRRRZnVPKFtkt6tsVCu52Sg8THGxskUYuAbqXA5HvfFu6h9VYgysXzSzVPGwytXxkb9txHuW+HA6UJPJnY6TFs2IgmsV6QiUG8VZ1MkCWRoo/tamy95yKjg=">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<div class="code-wrap"><h4>Code:</h4><div class="class-content">/// ➤ 2.1 Einfache Schleifen<br>for(int i=0; i&lt;10; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("i = " + i);<br>}<br><br>//GrafikKonsole.init();<br><br>/// Δe_j73ev7 Δ 2.1 Einfache Schleifen<br>System.out.println("2.1 Einfache Schleifen");<br><br>int i =0;<br>while(i&lt;=10)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("i = " + i++);<br>}<br><br>int j =20;<br>while(j&gt;10)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("j = " + j--);<br>}<br><br><br>/// Δe_4r0cpo Δ 2.2.1 for-Schleife mit Schrittweite<br>System.out.println("2.2 Andere Schrittweiten");<br><br>for(int i=0; i&lt;10; i+=3) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("i = " + i);<br>}<br><br>/// Δe_ha9jxv Δ 2.2.2 do-while-Schleife mit Schrittweite<br>int z = 0;<br>do<br>{ System.out.println("z = " + z++);}<br>while(z&lt;10);<br><br>/// Δe_bqbz2f Δ 2.3 Fehlermöglichkeiten<br>/*<br>System.out.println("///2.3 Fehlermöglichkeiten:")<br><br>int i = 0;<br>for(int i=0; i&lt;10; i+=1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("i = " + i);<br>}<br><br>System.out.println(i);<br>*/<br><br>/// Δe_vrcamf Δ 2.4 Verschachtelte Schleife<br>System.out.println("2.4 Verschachtelte Schleife");<br><br>for(int i=1; i&lt;=10; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;for(int j=1; j&lt;=10; j++)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int Ergebniss = i*j;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(Ergebniss + "\t");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print("\n");&nbsp;&nbsp; <br>}<br><br>/// Δe_qmjx6c Δ 2.5 Einmaleins mit Überschriften<br>System.out.println("\t" + "1"+ "\t"+ "2"+ "\t"+ "3");<br>for(int i=1; i&lt;=3; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(i + "\t" );<br>&nbsp;&nbsp;&nbsp;&nbsp;for(int j=1; j&lt;=3; j++)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int Ergebniss = i*j;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(Ergebniss + "\t");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.print("\n");&nbsp;&nbsp; <br>}</div></div>
+
+
+</body>
+</html>

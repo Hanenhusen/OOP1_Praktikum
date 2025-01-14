@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<meta name="headingType" content="2" /> 
+	<meta name="headingStartValue" content="3" /> 
+
+<title>_3_Prozeduren_Einmaleins</title>
+<style>
+body { 
+    font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    display: flex;
+}
+.marginalia {
+    height: 100%;
+    flex: 0 0 70px;
+    display: inline-block;
+    position: relative;
+}
+.main-content {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 645px;
+}
+.code-wrap {
+    margin-left: 10px;
+}
+.class-content {
+    font-family: Consolas,monaco,monospace; 
+}
+
+
+/* -- content types -- */
+.code {
+    color: #666;
+    font-family: Consolas,monaco,monospace; 
+    padding: 5px;
+}
+.graphic.no-edit {
+    border: hsl(200, 100%, 97%) 1px solid;
+    overflow: hidden;
+}
+.hint.no-edit .title {
+    vertical-align: top;
+    font-weight: bold;
+}
+.hint.no-edit .header .wrap {
+    border-bottom: 2px solid hsl(214, 38%, 59%);
+}
+.hint.no-edit .hint {
+    display: none;
+}
+.hint.no-edit::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    background-color: hsl(196, 100%, 47%);
+    height: 25px;
+    width: 22px;
+}
+
+
+/* -- text decorations -- */
+.underline { 
+    text-decoration: underline; 
+}
+.strikethrough { 
+    text-decoration: line-through; 
+}
+a {
+    color: hsl(196, 100%, 47%);
+}
+
+
+/* -- task links -- */
+.task-link {
+    color: hsl(196, 100%, 47%);
+    font-weight: bold;
+    padding: 0 2px;
+    line-height: 26px;
+    cursor: pointer;
+    pointer-events: none;
+}
+.task-link::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    background-color: hsl(196, 100%, 47%);
+    height: 18px;
+    width: 18px;
+    margin-top: 6px;
+}
+.task-link.main::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.def::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.exec::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.text::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+}
+.task-link.action::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+}
+
+
+/* -- ratings -- */
+.task-link.rating-good::after, .task-link.rating-mid::after, .task-link.rating-bad::after{
+    content: "";
+    left: 8px;
+    position: absolute;
+    pointer-events: none;
+    height: 22px;
+    width: 22px;
+    padding-top: 5px;
+}
+.task-link.rating-good::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(120, 70%, 40%);
+}
+.task-link.rating-mid::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(50, 100%, 45%);
+}
+.task-link.rating-bad::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(0, 100%, 45%);
+}
+
+
+/* -- textmarkers -- */
+.hilitecolor1 {
+    background-color: hsl(50, 100%, 80%);
+}
+.hilitecolor2 {
+    background-color: hsl(200, 100%, 80%);
+}
+.hilitecolor3 {
+    background-color: hsl(120, 100%, 80%);
+}
+.hilitecolor4 {
+    background-color: hsl(0, 100%, 80%);
+}
+.hilitesolution {
+    background-color: hsl(196, 100%, 47%, 30%);
+    font-style: italic;
+}
+
+
+/* -- headings -- */
+h1, h2, h3 {
+    color: hsl(209, 60%, 45%);
+}
+h1[data-number]:before, h2[data-number]:before, h3[data-number]:before {
+    content: attr(data-number);
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+
+/* -- skill/concept map -- */
+.skill.no-edit {           
+    cursor: initial !important;
+    padding-top: 7px;
+}
+.skill.no-edit .skill {
+    display: inline-block;
+    margin: 0px 5px 2px 5px;
+    position: relative;
+}
+.skill.no-edit .skill .container {
+    min-height: 27px;
+    display: table;
+    border: 2px solid;
+}
+.skill.no-edit .skill .container .block {
+    font-size: 14px;
+    display: table-cell;
+    min-width: 19px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 6px 0px 4px;
+    color: hsl(196, 100%, 97%);
+}
+.skill.no-edit .skill .container .content {
+    padding: 2px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+.skill.no-edit .skill .container .content span {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.skill.no-edit .skill .container .content .text {
+    vertical-align: -1px;
+}
+.skill.no-edit .skill .container.concept {
+    border-color: hsl(282, 40%, 67%) !important;
+}
+.skill.no-edit .skill .container.concept .block {
+    background-color: hsl(282, 40%, 67%);
+}
+.skill.no-edit .skill .container.concept.attr_certificate {
+    border-color: hsl(282, 40%, 47%) !important;
+}
+.skill.no-edit .skill .container.concept.attr_certificate .block.attr_certificate {
+    background-color: hsl(282, 40%, 47%);
+}
+.skill.no-edit .skill .container.syntax {
+    border-color: hsl(256, 43%, 67%) !important;
+}
+.skill.no-edit .skill .container.syntax .block {
+    background-color: hsl(256, 43%, 67%);
+}
+.skill.no-edit .skill .container.syntax.attr_certificate {
+    border-color: hsl(256, 43%, 47%) !important;
+}
+.skill.no-edit .skill .container.syntax.attr_certificate .block.attr_certificate {
+    background-color: hsl(256, 43%, 47%);
+}
+
+</style>
+<script>
+    window.onload = function() {
+        if (window.location.hash) {
+            let id = window.location.hash.substring(1);
+            let anchor = document.getElementsByClassName(id);
+            if (anchor[0]) {
+            let top = anchor[0].offsetTop;
+            window.scrollTo(0, top);
+            }
+        }
+        let links = document.querySelectorAll(".task-link");
+        for (let i = 0; i < links.length; i++) {
+            links[i].onclick = function(event) {
+                if (event.target.getAttribute("data-href")) {
+                    window.open(event.target.getAttribute("data-href"), "_self");
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div #marginalia class="marginalia"></div>
+
+<div class="main-content">
+<h1 class="e_v7gzgb" data-number="3">Prozeduren - Einmaleins</h1>
+<p>Nun schreiben Sie der Reihe nach einige Prozeduren und rufen sie auf. Dabei nehmen wir das <strong>Beispiel des Einmaleins </strong>wieder auf, das Sie bereits in einem vorangegangenen Termin bearbeitet hatten.</p>
+<p>Sie definieren im Folgenden der Reihe nach einige Prozeduren und testen Sie schrittweise und aufeinander aufbauend - beides auf die Art und Weise, die Sie im letzten Kapitel kennengelernt haben.</p>
+<p>Um den <strong>Umgang mit Prozeduren und Parametern zu üben</strong>, werden die einzelnen Bestandteile der Darstellung in einzelne Prozeduren aufgeteilt.&nbsp;</p>
+<p>Neben der reinen Funktionalität und der korrekten Syntax müssen Sie die weiteren Randbedingungen beachten, die im <a class="u_vgj0cb s_qrrlbt" href="_1_Coding_Style.flow.html#e_qrrlbt">Coding Style</a> vorgegeben sind. <br>Speziell für Prozeduren gilt:</p>
+<p>- Geben sie den Prozeduren und den Parametern gut beschreibende <strong><em>Namen</em></strong>.&nbsp; Der Name sollte beschreiben, was die Prozedur tut, in der Form eines Befehls.</p>
+<p>- Zu jeder Definition einer Prozedur gehört auch immer die Beschreibung, WAS diese Prozedur tun soll. Das geschieht im <strong><em>javadoc</em></strong>-Format, in dem auch die Parameter mit speziellen Tags beschrieben werden. Die Beschreibung kann kurz sein, muss aber vollständig sein.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 data-number="3.1">Titel anzeigen</h2>
+<p><span class="task-link s_bupfv5 def" data-href="Aufgabe_05.java#e_bupfv5">Definieren Sie</span> eine Prozedur, die den Titel "Einmaleins" auf der Konsole anzeigt.&nbsp;<br>Mehr soll die Prozedur nicht tun! Wir beginnen einfach, es wird noch (etwas) aufwändiger ...</p>
+<p>Denken Sie immer auch an die <strong>javadoc</strong>-Beschreibung.&nbsp;</p>
+<p><span class="task-link s_n24on3 main" data-href="Aufgabe_05.java#e_n24on3">Testen Sie</span> nun diese einfache Prozedur, indem Sie sie in der Prozedur <code>main() </code>aufrufen. Diese ist bereits im .java-File dieses Projekts vorhanden. Führen Sie dann das File aus.&nbsp;</p>
+<div id="o495i4" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Der Aufgaben-Kontext, in dem diese Prozedur aufgerufen wird, wird durch den aktiven Kommentar /// ebenfalls auf die Konsole ausgegeben. Damit können Sie immer sehen, welcher Aufgaben-Teil wann durchlaufen wird.</span></div>
+</div>
+<div class="hint" data-uuid="57bth4" data-hint="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">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h2 data-number="3.2">Infos anzeigen</h2>
+<p><span class="task-link s_ecyhvc def" data-href="Aufgabe_05.java#e_ecyhvc">Definieren Sie</span> eine Prozedur, die eine Infozeile ausgibt. Dort sollen der Autor (ein <code>String</code>) und die Version dieses Programms (ein <code>double</code>) ausgegeben werden.</p>
+<p>Diese beiden Angaben sollen der Prozedur als <em>Parameter </em>übergeben werden. Sie müssen also zwei passende formale Parameter für diese Prozedur definieren und in ihr verwenden.&nbsp;</p>
+<p><span class="task-link s_oexwij main" data-href="Aufgabe_05.java#e_oexwij">Testen Sie</span> diese Prozedur, indem Sie sie in <code>main() </code>aufrufen - nach dem Aufruf der Prozedur für die Ausgabe des Titels. Im Aufruf müssen Sie passende aktuelle Parameter angeben. Führen Sie dann das .java-File aus. Nun sollte nach der Ausgabe des Titels durch die Prozedur der vorherigen Aufgabe auch die Infozeile angezeigt werden.</p>
+<p>Führen Sie dann das .java-File aus. Nun sollten der Titel und die Infozeile angezeigt werden.</p>
+<p>&nbsp;</p>
+<h2 data-number="3.3">Spaltenüberschriften anzeigen</h2>
+<p>Nun brauchen Sie eine Prozedur, die die Spaltenüberschriften für das Einmaleins von 1 bis max auf die Konsole ausgibt.&nbsp;</p>
+<p><span class="task-link s_hecxxl def" data-href="Aufgabe_05.java#e_hecxxl">Definieren Sie</span> eine Prozedur, die die Zahlen von 1 bis max hintereinander, getrennt mit einem Tabulator-Zeichen in einer Zeile auf die Konsole ausgibt. Hier muss also <code>max </code>als Parameter angegeben und verwendet werden.</p>
+<p style="padding-left: 20px;">Hinweis: Außerdem sollten Sie am Anfang der Überschrift die Zeilennummer berücksichtigen, die am Anfang jeder Zeile stehen soll (siehe nächste Aufgabe). Fügen Sie daher direkt am Anfang der Überschrift ein Tabulator-Zeichen "\t" ein.&nbsp;&nbsp;</p>
+<p><span class="task-link s_larewa main" data-href="Aufgabe_05.java#e_larewa">Testen Sie</span> diese Prozedur, indem Sie sie in <code>main() </code>aufrufen. Dafür müssen Sie einen passenden aktuellen Parameter angeben.</p>
+<p>Führen Sie dann das .java-File aus. Nun sollten der Titel, die Überschrift und die Infozeile angezeigt werden.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 data-number="3.4">Eine einzelne Zeile anzeigen</h2>
+<p><span class="task-link s_7ppe8j def" data-href="Aufgabe_05.java#e_7ppe8j">Definieren Sie</span> eine Prozedur, die eine einzelne Zeile des Einmaleins von 1 bis <code>max</code> anzeigt. Diese Prozedur bekommt die Zeilennummer und die Zahl der Spalten (d.h. <code>max</code>) als Parameter übergeben. Bei der Ausgabe gilt:</p>
+<ul>
+<li>Am Anfang der Zeile steht die Zeilennummer, gefolgt von einem Tabulator-Zeichen</li>
+<li>Die Werte werden der Reihe nach ausgegeben.</li>
+</ul>
+<p><span class="task-link s_dids9o main" data-href="Aufgabe_05.java#e_dids9o">Testen Sie</span> diese Prozedur, indem Sie sie in <code>main() </code>aufrufen. Dafür müssen Sie wieder passende aktuelle Parameter angeben. Die einzelne Zeile sollte nach dem Titel, den Spaltenüberschriften und der Infozeile angezeigt werden.&nbsp;</p>
+<p>Dass Sie zum Testen das .java-File immer aufrufen müssen, ist Ihnen inzwischen klar, es wird daher im Folgenden nicht weiter explizit gefordert.</p>
+<p>&nbsp;</p>
+<h2 data-number="3.5">Alle Zeilen anzeigen&nbsp;</h2>
+<p>Natürlich sollen nicht nur eine, sondern <em>alle </em>Zeilen des Einmaleins von 1 bis <code>max </code>angezeigt werden.</p>
+<p><span class="task-link s_xlf5s4 def" data-href="Aufgabe_05.java#e_xlf5s4">Definieren Sie</span> dafür eine Prozedur, der Sie <code>max </code>als Parameter übergeben. Im body dieser Prozedur rufen Sie die oben selber geschriebene Prozedur für die Ausgabe einer einzelnen Zeile geeignet auf!</p>
+<p><span class="task-link s_4zheq7 action">Machen Sie sich hier klar</span>, dass Sie <strong>innerhalb einer Prozedur auch andere Prozeduren aufrufen </strong>können.&nbsp;</p>
+<p><span class="task-link s_7i4rk6 main">Testen Sie</span> diese Prozedur, indem Sie sie in <code>main()</code>mit einem passenden Parameter aufrufen.</p>
+<p>&nbsp;</p>
+<h2 data-number="3.6">Alle Ausgaben in einer Prozedur zusammenfassen</h2>
+<p>Um die gesamte Anzeige des Einmaleins von 1 bis <code>max </code>inklusive Titel, Info, Überschriften und Produkttabelle mit nur einem Aufruf verwenden zu können, erstellen Sie dafür nun eine eigene Prozedur. In deren body werden also die oben geschriebenen einzelnen Prozeduren aufgerufen.&nbsp;</p>
+<p><span class="task-link s_16m4ou def">Definieren Sie</span> diese Methode mit <code>max </code>als Parameter.</p>
+<p><span class="task-link s_atiiv8 main">Testen Sie</span> diese Methode.</p>
+<p><span class="task-link s_x05edf action">Machen Sie sich klar</span>: Die einzelnen Prozeduren werden nicht nur in <code>main()</code>, sondern auch in dieser Sammel-Prozedur aufgerufen. Das ist u.a. der Sinn und Zweck von Prozeduren: 1x definieren, mehrfach aufrufen.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 class="e_y60ri3" data-number="3.7">Fehlerfälle testen</h2>
+<p>Natürlich kann man nicht nur bei der Definition von Prozeduren Fehler machen, sondern auch beim Benutzen, d.h. bei Aufrufen. Einige typische Fehlerfälle sollten Sie kennen, damit Sie diese Fehler erkennen und beheben können.&nbsp;</p>
+<h3 class="e_ldud8z" data-number="3.7.1">Auskommentieren von Fehlercode</h3>
+<p>Für das Auskommentieren des Fehlercodes haben Sie zwei Möglichkeiten:</p>
+<ul>
+<li>mit einem Block-Kommentar, wie schon angewendet /* Fehlercode */
+<ul>
+<li>Das geht natürlich. Hier besteht aber die Möglichkeit, dass man ggf. bereits vorhandene Block-Kommentare damit einschließt. Da Block-Kommentare aber nicht schachtelbar sind, würden sich hierdurch Fehlermeldungen ergeben.</li>
+</ul>
+</li>
+<li>mit <strong>Zeilenkommentaren </strong>// für jede betroffene Zeile
+<ul>
+<li>Das klappt immer, ohne die o.a. Probleme mit Block-Kommentare</li>
+<li>Das ist nur etwas lästig, weil man jede einzelne Zeile auskommentieren muss.</li>
+</ul>
+</li>
+</ul>
+<p>Für die letzte Möglichkeit gibt es daher eine <strong>eigene Funktion im Code-Editor</strong> von 5Code:</p>
+<ul>
+<li>Selektieren sie die Zeilen, die gemeinsam auskommentiert werden sollen</li>
+<li>Rufen Sie die Funktion "Selektierten Code ein/auskommentieren" auf
+<ul>
+<li>Dafür gibt es in der Toolbar ein Icon: <img src="data:image/png;base64,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"></li>
+</ul>
+</li>
+</ul>
+<p>Mit dieser Funktion können Sie</p>
+<ul>
+<li>sowohl mehrere Zeilen auskommentieren,</li>
+<li>als auch wieder "einkommentieren", d.h. die Kommentar-// wieder entfernen.
+<ul>
+<li>Dafür selektieren Sie die auskommentierten Zeilen und klicken das Funktions-Icon.</li>
+</ul>
+</li>
+</ul>
+<h3 class="e_amztak" data-number="3.7.2">Falsche Anzahl von Parametern</h3>
+<p><span class="task-link s_437gi9 main" data-href="Aufgabe_05.java#e_437gi9">Testen Sie</span> einen Aufruf der Prozedur, die Spaltenüberschrift ausgibt, wobei Sie aber zwei aktuelle Parameter angeben, nicht nur einen.</p>
+<p>&nbsp;<span class="task-link s_hm1uma text">Welche Fehlermeldung wird ausgegeben und was bedeutet das?</span></p>
+<p><span class="task-link s_o3zjl0 main">Testen Sie</span> nun einen Aufruf der Prozedur, die eine Zeile ausgibt, wobei Sie aber nur einen aktuellen Parameter angeben, nicht zwei.</p>
+<p><span class="task-link s_86h98b text">Welche Fehlermeldung wird ausgegeben und was bedeutet das?</span></p>
+<p>Damit dieser Fehlercode in den folgenden Aufgaben nicht stört, <span class="task-link s_fspglt action">kommentieren Sie den Code wieder aus</span>, nachdem Sie ihn getestet haben.&nbsp;</p>
+<p>&nbsp;</p>
+<h3 class="e_9sud9a" data-number="3.7.3">Falsche Typen von Parametern</h3>
+<p><span class="task-link s_h8l2a4 main">Testen Sie</span> einen Aufruf der Prozedur, die die Spaltenüberschrift ausgibt, wobei Sie aber eine double-Zahl als Parameter angeben.</p>
+<p><span class="task-link s_wkepjx text">Welche Fehlermeldung wird ausgegeben und was bedeutet das?</span></p>
+<div id="1fsuik" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Gucken Sie ggf. nochmal nach, wie man double-Zahlen als Literal angibt</span></div>
+</div>
+</div>
+<p>Auch diesen Fehlercode <span class="task-link s_0d96do action">kommentieren sie nach dem Testen wieder aus.</span>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<div class="code-wrap"><h4>Code:</h4><div class="class-content"></div></div>
+
+
+</body>
+</html>

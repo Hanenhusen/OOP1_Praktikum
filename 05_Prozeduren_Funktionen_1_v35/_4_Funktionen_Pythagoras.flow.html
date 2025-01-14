@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<meta name="headingType" content="2" /> 
+	<meta name="headingStartValue" content="4" /> 
+
+<title>_4_Funktionen_Pythagoras</title>
+<style>
+body { 
+    font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    display: flex;
+}
+.marginalia {
+    height: 100%;
+    flex: 0 0 70px;
+    display: inline-block;
+    position: relative;
+}
+.main-content {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 645px;
+}
+.code-wrap {
+    margin-left: 10px;
+}
+.class-content {
+    font-family: Consolas,monaco,monospace; 
+}
+
+
+/* -- content types -- */
+.code {
+    color: #666;
+    font-family: Consolas,monaco,monospace; 
+    padding: 5px;
+}
+.graphic.no-edit {
+    border: hsl(200, 100%, 97%) 1px solid;
+    overflow: hidden;
+}
+.hint.no-edit .title {
+    vertical-align: top;
+    font-weight: bold;
+}
+.hint.no-edit .header .wrap {
+    border-bottom: 2px solid hsl(214, 38%, 59%);
+}
+.hint.no-edit .hint {
+    display: none;
+}
+.hint.no-edit::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    background-color: hsl(196, 100%, 47%);
+    height: 25px;
+    width: 22px;
+}
+
+
+/* -- text decorations -- */
+.underline { 
+    text-decoration: underline; 
+}
+.strikethrough { 
+    text-decoration: line-through; 
+}
+a {
+    color: hsl(196, 100%, 47%);
+}
+
+
+/* -- task links -- */
+.task-link {
+    color: hsl(196, 100%, 47%);
+    font-weight: bold;
+    padding: 0 2px;
+    line-height: 26px;
+    cursor: pointer;
+    pointer-events: none;
+}
+.task-link::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    background-color: hsl(196, 100%, 47%);
+    height: 18px;
+    width: 18px;
+    margin-top: 6px;
+}
+.task-link.main::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.def::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.exec::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.text::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+}
+.task-link.action::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+}
+
+
+/* -- ratings -- */
+.task-link.rating-good::after, .task-link.rating-mid::after, .task-link.rating-bad::after{
+    content: "";
+    left: 8px;
+    position: absolute;
+    pointer-events: none;
+    height: 22px;
+    width: 22px;
+    padding-top: 5px;
+}
+.task-link.rating-good::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(120, 70%, 40%);
+}
+.task-link.rating-mid::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(50, 100%, 45%);
+}
+.task-link.rating-bad::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(0, 100%, 45%);
+}
+
+
+/* -- textmarkers -- */
+.hilitecolor1 {
+    background-color: hsl(50, 100%, 80%);
+}
+.hilitecolor2 {
+    background-color: hsl(200, 100%, 80%);
+}
+.hilitecolor3 {
+    background-color: hsl(120, 100%, 80%);
+}
+.hilitecolor4 {
+    background-color: hsl(0, 100%, 80%);
+}
+.hilitesolution {
+    background-color: hsl(196, 100%, 47%, 30%);
+    font-style: italic;
+}
+
+
+/* -- headings -- */
+h1, h2, h3 {
+    color: hsl(209, 60%, 45%);
+}
+h1[data-number]:before, h2[data-number]:before, h3[data-number]:before {
+    content: attr(data-number);
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+
+/* -- skill/concept map -- */
+.skill.no-edit {           
+    cursor: initial !important;
+    padding-top: 7px;
+}
+.skill.no-edit .skill {
+    display: inline-block;
+    margin: 0px 5px 2px 5px;
+    position: relative;
+}
+.skill.no-edit .skill .container {
+    min-height: 27px;
+    display: table;
+    border: 2px solid;
+}
+.skill.no-edit .skill .container .block {
+    font-size: 14px;
+    display: table-cell;
+    min-width: 19px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 6px 0px 4px;
+    color: hsl(196, 100%, 97%);
+}
+.skill.no-edit .skill .container .content {
+    padding: 2px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+.skill.no-edit .skill .container .content span {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.skill.no-edit .skill .container .content .text {
+    vertical-align: -1px;
+}
+.skill.no-edit .skill .container.concept {
+    border-color: hsl(282, 40%, 67%) !important;
+}
+.skill.no-edit .skill .container.concept .block {
+    background-color: hsl(282, 40%, 67%);
+}
+.skill.no-edit .skill .container.concept.attr_certificate {
+    border-color: hsl(282, 40%, 47%) !important;
+}
+.skill.no-edit .skill .container.concept.attr_certificate .block.attr_certificate {
+    background-color: hsl(282, 40%, 47%);
+}
+.skill.no-edit .skill .container.syntax {
+    border-color: hsl(256, 43%, 67%) !important;
+}
+.skill.no-edit .skill .container.syntax .block {
+    background-color: hsl(256, 43%, 67%);
+}
+.skill.no-edit .skill .container.syntax.attr_certificate {
+    border-color: hsl(256, 43%, 47%) !important;
+}
+.skill.no-edit .skill .container.syntax.attr_certificate .block.attr_certificate {
+    background-color: hsl(256, 43%, 47%);
+}
+
+</style>
+<script>
+    window.onload = function() {
+        if (window.location.hash) {
+            let id = window.location.hash.substring(1);
+            let anchor = document.getElementsByClassName(id);
+            if (anchor[0]) {
+            let top = anchor[0].offsetTop;
+            window.scrollTo(0, top);
+            }
+        }
+        let links = document.querySelectorAll(".task-link");
+        for (let i = 0; i < links.length; i++) {
+            links[i].onclick = function(event) {
+                if (event.target.getAttribute("data-href")) {
+                    window.open(event.target.getAttribute("data-href"), "_self");
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div #marginalia class="marginalia"></div>
+
+<div class="main-content">
+<h1 class="e_lohen9" data-number="4">Funktionen</h1>
+<h2 class="e_bxakd9" data-number="4.1">Unterschied zu Prozeduren</h2>
+<p>Funktionen sind <strong>sehr ähnlich wie Prozeduren</strong>,</p>
+<ul>
+<li>In ihnen passiert etwas</li>
+<li><strong>Plus</strong>: Sie haben auch einen <em>Wert als Ergebnis</em></li>
+</ul>
+<p>Auch für Funktionen gilt:</p>
+<ul>
+<li><strong>Definition </strong>- es wird <em>einmal </em><span class="underline">beschrieben</span>, was in der Prozedur passieren soll</li>
+<li><strong>Aufruf </strong>- es kann <em>beliebig oft</em> bestimmt werden, <span class="underline"><em>dass </em>es passieren soll</span></li>
+</ul>
+<p>Auch hier gilt: Definition und Aufruf müssen an unterschiedlichen Stellen im Code positioniert werden, wie Sie bereits in der Aufgabe <a class="u_05fth0 s_h8z6gw" href="_1_Einleitung.flow.html#e_h8z6gw">zu Beginn </a>gelernt haben.</p>
+<p>Neben der reinen Funktionalität und der korrekten Syntax müssen Sie die weiteren Randbedingungen beachten, die im <a class="u_fyqoa9 s_qrrlbt" href="_1_Coding_Style.flow.html#e_qrrlbt">Coding Style</a> vorgegeben sind. Für Funktionen gilt, sehr ähnlich wie für Prozeduren:</p>
+<p>- Geben Sie jeder Funktion und ihren Parametern gut beschreibende <strong><em>Namen</em></strong>. Der Name einer Funktion sollte den Rückgabewert beschreiben.&nbsp;</p>
+<p>- Zu jeder Definition einer Funktion gehört auch immer die Beschreibung, WAS diese Prozedur tun soll. Das geschieht im <strong><em>javadoc</em></strong>-Format, in dem auch die Parameter <em>und der Rückgabewert</em> mit speziellen Tags beschrieben werden. Die Beschreibung kann kurz sein, muss aber vollständig sein.</p>
+<p>&nbsp;</p>
+<h2 data-number="4.2">Satz des Pythagoras</h2>
+<p>Im Folgenden erstellen Sie einfache Funktionen um ihre Eigenschaften kennenzulernen. Auch hier schreiben und verwenden Sie <strong>mehrere Funktionen</strong>, <strong>um den Umgang mit Definition und Aufruf zu üben</strong>.</p>
+<p>Als Beispiel verwenden Sie den einfachen Satz des Pythagoras.</p>
+<p>&nbsp; &nbsp; <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHP4VurnFTz7WF2qeD6_pHqKKmB5XMysTZGA&amp;usqp=CAU" alt="GRIPS Mathe 29: Der Satz des Pythagoras | GRIPS Mathe | GRIPS | BR.de" width="300" height="169" data-ils="4"></p>
+<p>&nbsp;</p>
+<h3 class="e_665x48" data-number="4.2.1">Quadrat berechnen</h3>
+<p><span class="task-link s_v5b99b def" data-href="Aufgabe_05.java#e_v5b99b">Definieren Sie</span> eine einfache Funktion, die das Quadrat einer übergebenen ganzen Zahl berechnet - und das Ergebnis der Berechnung als Funktionswert zurückgibt.</p>
+<div id="o0f2bo" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Vorsicht: Die Schreibweise a^2 bedeutet hier im Text a hoch 2. ABER: In Java bedeutet diese Operation keine Quadrierung!</span></div>
+</div>
+<div class="hint" data-uuid="xie525" data-hint="U2FsdGVkX1+/BC3jNvcHp/g4Lb0bKKTM1Oluo7izfjgSVs1A+IETUtUzNhCCnQkwJu9KzehsUfT1fjOFlQauTRD+mGTEYarit7zUcQETaz1bhuvHWPzcCAeokg1cYZmEgGRC9TdkDRRYcMtxNli7b9J7KLib8u8u7XTTBzcIs+kUs60IVtbAbyQFwYwCsllhi4dSsshlph1qnORhDLOQzPUd9PREEWwu0ZlVzcxl8xesIPp/AQDsHHb6cSrduobCPuI5++fPZUd4QAW4ISQAQARfoeaz0dXb2zg653ovvCpNEd5zUcy83ihPJX4CI8r24kvDksn/896ANvqiJIpXaAgIDA19dnBbkYLGQbVcOaQp1MPXVaj3K6KkXwuk32YIOnfuzrYSrmICna7UO3huXPczHL7gF70QfLjTgsQvYj/VoOSSrgIsa6ml5BpyLlA1hJm/dtHcMoppL3Eqp1l/riRc/Tgn2RkN25fllPnaqCVgPhtwY08vp6OfpmW+gpVxDkVmOCZWt+f+rFoKF8A3I3KyfG3BwaEYx/OJ25IU1rlSiGnnVBj5qw+y+PaEVsXnm0MSCEitrpDD8jO50m9CAooQwekz+yK6roXoL0vJSUUfj1i9PIFGQ1eGxcEL84JCYBXjf8Ya089EMlqMCAxYG2gFSwfO1aRVm4qm+sDXeMcaVAMMx2VH0tgC/emMCbifxrnGKJ6LASjUkncIwV8uQv+dPSrflmRMayi6CUIanDdZk1m9ZQnUeYtgOt+WXfVC9xleIbgwnqZL4/K0JPHI00lPwfXt++N4uYGAbYJeQ7wRkKcJ4AVwCnKdocfMnqb+RF7KHY/njzUPA9TU6QNuu5X15KLdeOpnsztWGdwB2gfbTLS1BY/pMXb5YA3JZ0+nggzftLPuxmsVwYxSgtsR7I1/eZwnYJWPIswGYRCkJUxjMibuSI0/rPPf4tnZ/UmUotH6h2+S82iJfDIqkkgdfEXS4KvDujJbwQT6rhPp6HA7RU0rt7Eccprkq9eGbEN80U1oKlalBpLGr0S29ioeLzTYsbA0fUg/VoebLSjrAk+iDtmd9HaXfW6rLskttaGkHonG02LA7C9XBOang6kBXdtz59UmuF2/xeocjD5xiuRFN06WyISHMNx2g17rDIqiUHQy2oVVMXaxX06D6BC6MiZ4sQDLl98JqNFu0fKA5uwClvPcJGgKYSX8wu1t7UgbiaYixrgbJmyXORwac/67BtLJg7CEjq6MST+/LEP297G8JUGFDToGOa/8cKxZ+ddAX50NbGtlf7VRfIkmXAsWqRb6IZbVJ6F3BVsDpukTRkKwyLIK+p4DjpWdWniUG9gdXKXVJ4cuzMfJ7hrpwmQJU2DBZRmqORi7vT+DEa2rrkxaRgDBWIbhyOmb9nzAWrtunJmmbXk8VbK71swKEPIARj+H7jS30XWsKVpJuAC0GXwRg+mvxwooV6CMo5O1ZSz0+BdyJ1dak8gfOpmh0QBEFwYFpOt5tVQyo4tcrAD+3wTL5qa5pV8UkeQ28YgNYPnZ45s9QO9z9qV4gSyoNvVl+zWx6S2TSQ17Lu99PPttNwH2tOjN6++agxlRFaUCxUUQ+rqAql6shc9HiEuCAh0tEhxNUxnYAVbqHK/fetARUPM9I4dzl4ZA87zwtev96wccSEHCkdU7oX2OQkIcYCev/OFJ5InaJzp3u6m0dB3KX11zKC2OMXl4lXFYTDcQ/uDOZ9lEUICb+T1GCTB/4221ErFblV2foqfqJcewNadpuOezlxMC+KYvnjl4c5JPRPSk">&nbsp;</div>
+</div>
+<p><span class="task-link s_5snv47 main" data-href="Aufgabe_05.java#e_5snv47">Testen Sie</span> diese Funktion, indem Sie sie zweimal, mit unterschiedlichen Werten aufrufen und das Ergebnis auf die Konsole ausgeben.</p>
+<div id="uj178z" class="hint no-edit">
+<div class="header no-hints">
+<div class="wrap"><span class="title">Erinnerung: "Als Funktionswert zurückgeben" ist etwas ganz anderes, als "Auf die Konsole ausgeben"</span></div>
+</div>
+</div>
+<div id="2t0ln8" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Überlegen Sie, welchen Datentyp die Funktion hat. </span></div>
+</div>
+<div class="hint" data-uuid="eznm1i" data-hint="U2FsdGVkX1/pi6LOrAiHRYPepIQAgiYRLzXxEA3Lr01Cqrdt8ktyN0E6O8ilVxeFE7a5iGq2OHHo2TNFg0WueMSMXdy6zJGDjS8Phmt5f7Gyyg+2bl9b3uMnBclj0OlPMVPK/E/un9bbXiCkcZnVw6TUGsUkWi01oilOi2/1593+B4D+0/BsFoR1n/HiVVIYCa4jZQPLJc3rirRohlOHDth+8O/ZpLvJoAbtFgEic/5NHEs4gQNtdvMOupldLqbH7vCuRfXX1FPTuKT0q6uag5AFdmarVidTA5U0u8I4PKzFKl/LcO/3/FBZk/wLnWErgotwgie6T8gC5rXjsrpnbdvVUONWkSPXQsU3E6+uzxxQgJcOGD8khShEqkHhY/xofCj+h8iwQkB+UlHDqn6vIlc+EtFU6l3g0zMQkzJD/PdsUR50Ug8Mhu4rljonFv82//jTf3Cr5+Ge/uGBLt9w5N+Qb4ULMpac6InAOIMjDAJixQQgT3CEufCRKQyWdek9RHm7bAFdzKmkD9ZttRMDnj6GV5rtRP2XzaVqJWqOuia6l7PJuV+cj2Xz7+CO17nC84C302ZBirMRW5bSF0dAyaX+WbdjwL5tnLmG/pXupzbEg3AWjVY2vuSw02kPoiEkA0TWkP7eni/yPa3Rm/6IJazyzrVcqOrrXYB3rC0yUk00sJFQNnoXxn0zwkivRWV7ktP3G9afDE41Ndyy5mUyV0IR2J+8RAqL8S5axEl1kPk=">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h3 class="e_m30wxx" data-number="4.2.2">Summe von Quadraten berechnen&nbsp;</h3>
+<p>Nun soll das Quadrat von zwei Zahlen berechnet und die Summe der Quadrate als Funktionswert zurückgegeben werden.</p>
+<p><span class="task-link s_l0c9pk def" data-href="Aufgabe_05.java#e_l0c9pk">Definieren Sie</span> hierfür eine passende Funktion, der diese zwei Zahlen übergeben werden.&nbsp;</p>
+<p><span class="task-link s_6s6men main" data-href="Aufgabe_05.java#e_6s6men">Testen Sie</span> diese Funktion, indem Sie sie mit zwei Werten aufrufen und das Ergebnis auf die Konsole ausgeben.</p>
+<div id="c79q2x" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">In dieser Funktion rufen Sie die eben definierte einfache Funktion zur Berechnung eines Quadrats auf.</span></div>
+</div>
+<div class="hint" data-uuid="zkatr3" data-hint="U2FsdGVkX19u/7a5ehvtDnOu+qpC6ylw9hH+8wd0ogTvFZgvUQL0U3E/JjDisrDYddURY49m3Ix1Vw2gSd397YUaRnU7/AcGMyF+bzIzKfYXoOQXAaJX798B0ssszwtDDt0X6tJTvtZTsXX7hNmd2lYrgyHgMl5IjtoJ6GVBkvUk9LJg/fFwpucpGtTq+Pd7KLunX9OBtdA82bC8nfFWrjBcH5YAo611R6wv3AMkLIkuApWFQkZyZQgbrmJJ1NiyoDiK/71pw5VEjEAjy1bLxqvkIYMpVCWPf+GkfT92wcFuBtvg79y5Xvn6b82zVIh2C4DJ8VRwc81HEljGMwbayet/c6BbJXfU4KICDFJkA7LHJCzlwJZLu3BmMOj/dkLDXVPGy9I1ocTO3kRQBSIckLYNivP5801Trv9n7q4vzhAKdloJkVMSq+Cggh2vsSy3">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h3 data-number="4.2.3">Mit Pythagoras prüfen</h3>
+<p>Der Satz des Pythagoras (a^2 + b^2 = c^2) gilt nur für rechtwinklige Dreiecke. Durch Vergleich von c^2 mit a^2 + b^2 kann man also feststellen, <em>ob </em>ein Dreieck mit den Katheten-Längen a und b und der Hypothenusen-Länge c ein rechtwinkliges Dreieck ist.&nbsp;</p>
+<p><span class="task-link s_w8hhjo def" data-href="Aufgabe_05.java#e_w8hhjo">Definieren Sie</span> eine Funktion, die a, b und c als Parameter übergeben bekommt und die gerade beschriebene Prüfung durchführt. Die Funktion gibt also zurück, ob a^2 + b^2 = c^2 wahr ist.&nbsp;</p>
+<p><span class="task-link s_fggryp main" data-href="Aufgabe_05.java#e_fggryp">Testen Sie</span> diese Funktion, indem Sie sie mit passenden Werten aufrufen und das Ergebnis auf die Konsole ausgeben. (3,4,5 sollten <code>true</code> ergeben, 1,2,3 sollte <code>false </code>ergeben).</p>
+<p><span class="task-link s_bbn7hc text">Welchen Datentyp hat diese Funktion?</span></p>
+<p>&nbsp;</p>
+<h3 class="e_ljlu60" data-number="4.2.4">Alles zusammenfassen</h3>
+<p>Zum Schluss fassen wir die oben geschriebenen Funktionen in einer <em>Prozedur</em>, zusammen. Dieser werden a, b und c als Parameter übergeben, sie prüft, ob das damit beschriebene Dreieck ein rechtwinkliges Dreieck ist und gibt dann eine dazu passende Meldung auf die Konsole aus (z.B. "Das Dreieck mit einer Hypothenuse der Länge 5 und zwei Katheten der Länge 3 und 4 ist rechtwinklig").&nbsp;</p>
+<p><span class="task-link s_s7skaw def" data-href="Aufgabe_05.java#e_s7skaw">Definieren Sie </span>&nbsp;diese Prozedur.</p>
+<p><span class="task-link s_f5w93r main" data-href="Aufgabe_05.java#e_f5w93r">Testen Sie</span> diese Prozedur indem Sie sie mit passenden Werten aufrufen (z.B. 3,4,5 und 1,2,3) Wird der erwartete Text auf die Konsole ausgegeben?</p>
+<p><span class="task-link s_lww0q4 action">Machen Sie sich klar</span>, dass diese Prozedur keinen Funktionswert zurückgibt, sondern in ihrem Code etwas berechnet - mit Hilfe der oben definierten Funktionen - und dann etwas auf die Konsole ausgibt.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 data-number="4.3">Fehlerfälle testen</h2>
+<p>Bei Definition und Aufruf von Funktionen können die gleichen Fehler auftreten wie bei Prozeduren. Zusätzlich können Fehler bezüglich des Funktions-Datentyps (d.h. des Datentyps, den die Funktion zurückgibt)&nbsp; auftreten. Einige typische Fehlerfälle sollten Sie kennen, damit Sie diese Fehler erkennen und beheben können.</p>
+<h3 data-number="4.3.1">Falsche&nbsp;Verwendung des Funktions-Datentyps</h3>
+<p>Testen Sie diesen Fehlerfall in Block-Kommentaren.</p>
+<p><span class="task-link s_upjmrm main" data-href="Aufgabe_05.java#e_upjmrm">Testen Sie</span> einen Aufruf der Funktion, die die Summe der Quadrate zweier Zahlen berechnet, wobei Sie das Ergebnis des Aufrufs einer (neu definierten) <code>boolean</code>-Variablen zuweisen.&nbsp;</p>
+<p><span class="task-link s_p18ey4 text">Welche Fehlermeldung wird vom Compiler ausgegeben und was bedeutet sie?</span></p>
+<p>&nbsp;</p>
+<h3 data-number="4.3.2">Falsche Rückgabe in der Funktion</h3>
+<p><span class="task-link s_x3vat6 def" data-href="Aufgabe_05.java#e_x3vat6">Definieren Sie</span> eine Funktion, die eine int-Zahl zurückgeben soll. Schreiben Sie im body dieser Funktion aber Code, der einen boolean-Wert, z.B. true zurückgibt.&nbsp;</p>
+<p><span class="task-link s_gl19wm text">Welche Fehlermeldung wird vom Compiler ausgegeben und was bedeutet sie?</span></p>
+<p>Diesen Fehlerfall können Sie <em>nicht</em>, wie bisher, in einem Block-Kommentar testen. Der Grund dafür ist der, dass 5Code Ihnen nur ermöglicht, Teile von <code>main() </code>selektieren und ausführen können. Die Definition einer Prozedur oder Funktion liegt aber nicht innerhalb von <code>main()</code>.&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<div class="code-wrap"><h4>Code:</h4><div class="class-content"></div></div>
+
+
+</body>
+</html>

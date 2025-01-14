@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<meta name="headingType" content="2" /> 
+	<meta name="headingStartValue" content="1" /> 
+
+<title>_1_Variable_und_Datentypen</title>
+<style>
+body { 
+    font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    display: flex;
+}
+.marginalia {
+    height: 100%;
+    flex: 0 0 70px;
+    display: inline-block;
+    position: relative;
+}
+.main-content {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 645px;
+}
+.code-wrap {
+    margin-left: 10px;
+}
+.class-content {
+    font-family: Consolas,monaco,monospace; 
+}
+
+
+/* -- content types -- */
+.code {
+    color: #666;
+    font-family: Consolas,monaco,monospace; 
+    padding: 5px;
+}
+.graphic.no-edit {
+    border: hsl(200, 100%, 97%) 1px solid;
+    overflow: hidden;
+}
+.hint.no-edit .title {
+    vertical-align: top;
+    font-weight: bold;
+}
+.hint.no-edit .header .wrap {
+    border-bottom: 2px solid hsl(214, 38%, 59%);
+}
+.hint.no-edit .hint {
+    display: none;
+}
+.hint.no-edit::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIGZpbGw9IiMwMDAwMDAiPjxnPjxwYXRoIGQ9Ik0wLDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMSw3aDJ2MmgtMlY3eiBNMTEsMTFoMnY2aC0yVjExeiBNMTIsMkM2LjQ4LDIsMiw2LjQ4LDIsMTJzNC40OCwxMCwxMCwxMHMxMC00LjQ4LDEwLTEwUzE3LjUyLDIsMTIsMnogTTEyLDIwIGMtNC40MSwwLTgtMy41OS04LThzMy41OS04LDgtOHM4LDMuNTksOCw4UzE2LjQxLDIwLDEyLDIweiIvPjwvZz48L3N2Zz4=) no-repeat 100% 100%;
+    background-color: hsl(196, 100%, 47%);
+    height: 25px;
+    width: 22px;
+}
+
+
+/* -- text decorations -- */
+.underline { 
+    text-decoration: underline; 
+}
+.strikethrough { 
+    text-decoration: line-through; 
+}
+a {
+    color: hsl(196, 100%, 47%);
+}
+
+
+/* -- task links -- */
+.task-link {
+    color: hsl(196, 100%, 47%);
+    font-weight: bold;
+    padding: 0 2px;
+    line-height: 26px;
+    cursor: pointer;
+    pointer-events: none;
+}
+.task-link::before {
+    content: "";
+    position: absolute;
+    left: 33px;
+    pointer-events: all;
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgZmlsbD0iY3VycmVudENvbG9yIiB4PSIwLjUiIHk9IjI0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQo8L3N2Zz4=);
+    background-color: hsl(196, 100%, 47%);
+    height: 18px;
+    width: 18px;
+    margin-top: 6px;
+}
+.task-link.main::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPk08L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.def::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkQ8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.exec::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHRleHQgeD0iMC41IiB5PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IGZvbnQtc2l6ZTogMjNweDsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7Ij7inqQ8L3RleHQ+DQoJPHRleHQgeD0iMTciIHk9IjExIiBmaWxsPSJjdXJyZW50Q29sb3IiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxMXB4OyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsiPkM8L3RleHQ+DQo8L3N2Zz4=);
+}
+.task-link.text::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxN2gtMnYtMmgydjJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxIDAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjV6Ii8+DQo8L3N2Zz4=);
+}
+.task-link.action::before {
+    mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+    -webkit-mask: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyI+DQoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMSAxNWgtMnYtMmgydjJ6bTAtNGgtMlY3aDJ2NnoiLz4NCjwvc3ZnPg==);
+}
+
+
+/* -- ratings -- */
+.task-link.rating-good::after, .task-link.rating-mid::after, .task-link.rating-bad::after{
+    content: "";
+    left: 8px;
+    position: absolute;
+    pointer-events: none;
+    height: 22px;
+    width: 22px;
+    padding-top: 5px;
+}
+.task-link.rating-good::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6bTMuNS05Yy44MyAwIDEuNS0uNjcgMS41LTEuNVMxNi4zMyA4IDE1LjUgOCAxNCA4LjY3IDE0IDkuNXMuNjcgMS41IDEuNSAxLjV6bS03IDBjLjgzIDAgMS41LS42NyAxLjUtMS41UzkuMzMgOCA4LjUgOCA3IDguNjcgNyA5LjUgNy42NyAxMSA4LjUgMTF6bTMuNSA2LjVjMi4zMyAwIDQuMzEtMS40NiA1LjExLTMuNUg2Ljg5Yy44IDIuMDQgMi43OCAzLjUgNS4xMSAzLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(120, 70%, 40%);
+}
+.task-link.rating-mid::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTkgMTUuNWg2djFIOXYtMXoiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iOS41IiByPSIxLjUiLz48Y2lyY2xlIGN4PSI4LjUiIGN5PSI5LjUiIHI9IjEuNSIvPjxwYXRoIGQ9Ik0xMS45OSAyQzYuNDcgMiAyIDYuNDggMiAxMnM0LjQ3IDEwIDkuOTkgMTBDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJTMTcuNTIgMiAxMS45OSAyek0xMiAyMGMtNC40MiAwLTgtMy41OC04LThzMy41OC04IDgtOCA4IDMuNTggOCA4LTMuNTggOC04IDh6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(50, 100%, 45%);
+}
+.task-link.rating-bad::after {
+    mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PGNpcmNsZSBjeD0iMTUuNSIgY3k9IjkuNSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iOC41IiBjeT0iOS41IiByPSIxLjUiLz48cGF0aCBkPSJNMTEuOTkgMkM2LjQ3IDIgMiA2LjQ4IDIgMTJzNC40NyAxMCA5Ljk5IDEwQzE3LjUyIDIyIDIyIDE3LjUyIDIyIDEyUzE3LjUyIDIgMTEuOTkgMnpNMTIgMjBjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4em0wLTZjLTIuMzMgMC00LjMyIDEuNDUtNS4xMiAzLjVoMS42N2MuNjktMS4xOSAxLjk3LTIgMy40NS0yczIuNzUuODEgMy40NSAyaDEuNjdjLS44LTIuMDUtMi43OS0zLjUtNS4xMi0zLjV6Ii8+PC9zdmc+) no-repeat 100% 100%;
+    background-color: hsl(0, 100%, 45%);
+}
+
+
+/* -- textmarkers -- */
+.hilitecolor1 {
+    background-color: hsl(50, 100%, 80%);
+}
+.hilitecolor2 {
+    background-color: hsl(200, 100%, 80%);
+}
+.hilitecolor3 {
+    background-color: hsl(120, 100%, 80%);
+}
+.hilitecolor4 {
+    background-color: hsl(0, 100%, 80%);
+}
+.hilitesolution {
+    background-color: hsl(196, 100%, 47%, 30%);
+    font-style: italic;
+}
+
+
+/* -- headings -- */
+h1, h2, h3 {
+    color: hsl(209, 60%, 45%);
+}
+h1[data-number]:before, h2[data-number]:before, h3[data-number]:before {
+    content: attr(data-number);
+    position: absolute;
+    left: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+
+/* -- skill/concept map -- */
+.skill.no-edit {           
+    cursor: initial !important;
+    padding-top: 7px;
+}
+.skill.no-edit .skill {
+    display: inline-block;
+    margin: 0px 5px 2px 5px;
+    position: relative;
+}
+.skill.no-edit .skill .container {
+    min-height: 27px;
+    display: table;
+    border: 2px solid;
+}
+.skill.no-edit .skill .container .block {
+    font-size: 14px;
+    display: table-cell;
+    min-width: 19px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 6px 0px 4px;
+    color: hsl(196, 100%, 97%);
+}
+.skill.no-edit .skill .container .content {
+    padding: 2px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+.skill.no-edit .skill .container .content span {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.skill.no-edit .skill .container .content .text {
+    vertical-align: -1px;
+}
+.skill.no-edit .skill .container.concept {
+    border-color: hsl(282, 40%, 67%) !important;
+}
+.skill.no-edit .skill .container.concept .block {
+    background-color: hsl(282, 40%, 67%);
+}
+.skill.no-edit .skill .container.concept.attr_certificate {
+    border-color: hsl(282, 40%, 47%) !important;
+}
+.skill.no-edit .skill .container.concept.attr_certificate .block.attr_certificate {
+    background-color: hsl(282, 40%, 47%);
+}
+.skill.no-edit .skill .container.syntax {
+    border-color: hsl(256, 43%, 67%) !important;
+}
+.skill.no-edit .skill .container.syntax .block {
+    background-color: hsl(256, 43%, 67%);
+}
+.skill.no-edit .skill .container.syntax.attr_certificate {
+    border-color: hsl(256, 43%, 47%) !important;
+}
+.skill.no-edit .skill .container.syntax.attr_certificate .block.attr_certificate {
+    background-color: hsl(256, 43%, 47%);
+}
+
+</style>
+<script>
+    window.onload = function() {
+        if (window.location.hash) {
+            let id = window.location.hash.substring(1);
+            let anchor = document.getElementsByClassName(id);
+            if (anchor[0]) {
+            let top = anchor[0].offsetTop;
+            window.scrollTo(0, top);
+            }
+        }
+        let links = document.querySelectorAll(".task-link");
+        for (let i = 0; i < links.length; i++) {
+            links[i].onclick = function(event) {
+                if (event.target.getAttribute("data-href")) {
+                    window.open(event.target.getAttribute("data-href"), "_self");
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div #marginalia class="marginalia"></div>
+
+<div class="main-content">
+<h1 data-number="1">Variable und Datentypen</h1>
+<p>In diesem Praktikum lernen Sie, mit <strong>Variablen </strong>verschiedener <strong>einfacher (primitiver) Datentypen</strong> umzugehen.</p>
+<p>Dabei lernen Sie auch die einfachen <strong>Operationen</strong> auf diesen Datentypen kennen.</p>
+<p>&nbsp;</p>
+<h2 class="e_lf70rl" data-number="1.1">Aufgaben bearbeiten in 5Code</h2>
+<p>Wie Sie in einem 5Code-Projekt arbeiten, haben Sie im letzten Praktikumstermin gelernt und ausprobiert.</p>
+<p>Zur <em>Erinnerung</em>: Die <strong>Aufgabenstellungen für das OOP1-Praktikum </strong>umfassen jeweils</p>
+<ul>
+<li>Einführenden und beschreibenden Text</li>
+<li>Konkrete, zu erledigende Aufgaben,
+<ul>
+<li>z.B.: <span class="task-link s_xqol6z action">korrigieren Sie den folgenden Code</span></li>
+<li>oder z.B.: <span class="task-link s_2s3kic text">Inwiefern ändert sich die Ausgabe auf die Konsole</span></li>
+</ul>
+</li>
+</ul>
+<p>Klicken Sie jeweils auf das Aufgaben-Icon in der linken Marginalspalte.</p>
+<ul>
+<li>Beim !-Icon ändert sich nichts in der Aufgabe</li>
+<li>Bei den anderen Aufgaben-Icons fügen Sie Ihre Text-Antwort ein (?-Icon) oder schreiben Code in das dadurch geöffnete Java-File für Lösungs-Code.&nbsp;</li>
+<li>Außerdem können Sie bei jeder Aufgabe mit einem Smiley bewerten, wie gut Sie mit dieser Aufgabe zurechtgekommen sind.&nbsp;</li>
+</ul>
+<div id="dfj69h" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Hinweise und Tipps erhalten Sie, wenn Sie auf das (i) oder diesen Text klicken.</span></div>
+</div>
+<div class="hint" data-uuid="mhy9t6" data-hint="U2FsdGVkX1/q+W7Rzob2sv/+XM9czH/Yk+csvcXJlexevEPS2IpYZYfr7FqDNargYE+e5ep5Ucejh3ew7dDVKXF8bvf+xKMv8vaY07EPGwnmRgz/PYRlN742y0hnbcGmp+GzScUVWiLZaO1lTWruo4eL5eIwkgqGmZKKhjiblks75b8Gd57EzSJXC71o27HJS42goTcqOIUzY2+xuTNZB8ipqvURbHOHWFoVIuMDe0lBF0o12oKNjy1dRE+d/H0M5H8Hqnkmz8C1t+Eom5Z3VQ5QyZIayvq2EqMAJVf/Tx1ah0G+kaNeLfjvE9VM7Q9lnoXttWSRfG5f8bG42zj7IfANogWrhmEdS3P8uPdybhKAnugPEVunzDf+/i61E/aQ3OWhlYYIqc9889hjdgjz+3GUvN3l1kPaVieDEkOFE4GM5cnKJHXwyvRGTva2zPp/GjysO1MHiW+s2eC8N2WlKvZBXvAs9ul78e6wB9mT4DYjZxSpVjPb+KcchBi43gbttwn2JQXx49sI2leqxAKPiTLNVTEGIWfNns0jC+/uCh0=">&nbsp;</div>
+<div class="hint" data-uuid="p8vse4" data-hint="U2FsdGVkX18Zh/noaKMkfAQ84rSr6GM9z8L4PukyvVNPDB69bGf+6Vcw9+/0TLtUkNpXk95rmv3DzrPnBKffyrMHVzDLz+hADJMZb+vs0IOf35w00D7LPJXOupfHzOfu7J6vSLMJ0x8jpr6raom4B9w0tLaPAlSHX5qX4AFt+QcZZjFQNgcSAt6O0vbcdvokEMcc6+lYsandaKxoO6lpMNJYqYJ/rzVbcu6gyKGIR+tcO7CV0Dp2Pc9WHGgNjEE/hoYOyKogWGTLIb8kT+bFdyKSQixeeuqE7bRu/ISY+xW5z7noiz0W55fOQ0yknmK/XJDmVTrD+xSsI+D317zIpI6gsc7t/0EwhNnjnaNJYIrjWdYfJDqvtMOzfwYpHoKXGZbXs6W9+xR/wRCFvYZ9THqrIgCDIOSvNCOIDk8Iof2ev1+NHw+uauhFOb1k+6kSwn9+3nN/y5f7YGgPh/xiX0IZHQX4bUUCd9EvkT31NhzPSV/h3VGvF70qD+1SplFWhZX0IvmiMtGDuznZB3iBvU/tEYFc18UQ3JqncK9usw+Dz8m4KGbCHLo/+ZFQG0o10Jb4l5piXTP1tktA5DoK6DK2bF5wXJLS36Eiw1QGmLlmePbRqc25LgM89B+zQWQIY6WbBKGQgH8sWn4lxRzCbq3IHlRQnI0Nc+HOMyD+sEXX6J5qmGobSp8yde4xVLNZcGKB5VitkGPEFDlxfSa4gC402JXb759PevBUWNWx2Dqu8d2lj3GwQNque845TI0R5MQfWlDh5GQThO0AT24R8FqI8D6JvVHZvSAf4TVqQCRDEtO7tLrceLHyZIbH/3uBFTqPTAXC4jrU7aIcGh2JKp7kaSAA4h5axjKkBuuLSV2fbqVYRx0FytxfFMEP6NdaE7j+VePC4GcB8fbLZQUPVVVenJQ6agNeHq+ka74Z0+BKLl+LNNV7Gr7IqXVb5Lmr98+1c28A7n8baJw/5xKSDg==">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h2 class="e_79n7bh" data-number="1.2">Kommentare schreiben</h2>
+<p>Um Quellcode zu beschreiben, werden <strong>Kommentare </strong>verwendet.</p>
+<p>Das ist immer <strong>wichtig und sinnvoll</strong>, da Sie immer wissen sollten, <em>was Ihr Code tun soll</em>.</p>
+<p>1) Sie schreiben auf, was der Code tun <strong>SOLL</strong> - in einem Kommentar</p>
+<p>2) Sie schreiben den Code, das <strong>IST</strong> das Programm, das compiliert und ausgeführt wird.</p>
+<p>3) Wenn der Code nicht tut, was er soll, können Sie im Kommentar<br>&nbsp; &nbsp; immer nachlesen, was er eigentlich tun sollte.<br>&nbsp; &nbsp; D.h. Sie können das <strong>IST gegen das SOLL prüfen</strong></p>
+<p>Das Schreiben von Kommentaren entspricht den Schritten&nbsp; <span class="hilitecolor3">Ü</span>&amp;<span class="hilitecolor3">A</span> in der allgemeinen Vorgehensweise, die Sie in der ersten Aufgabe in der letzten Woche kennengelernt haben:</p>
+<p><strong><span class="hilitecolor3">L</span>esen -&gt; <span class="hilitecolor3">V</span>erstehen -&gt; <span class="hilitecolor3">Ü</span>berlegen -&gt; <span class="hilitecolor3">A</span>ufschreiben -&gt; <span class="hilitecolor3">C</span>odieren</strong></p>
+<p>Wenn Sie im Code keine oder zu wenig eigene Kommentare schreiben, können Sie schon nach kurzer Zeit selber nicht mehr nachvollziehen, <strong>was<em> </em></strong>Ihr eigener Code denn eigentlich tun soll, und auch nicht, <strong>wie </strong>er das tut. Das sollten Sie aber können, wenn Fehler auftreten, wenn der Code weiterentwickelt werden soll, wenn jemand anders mit ihm arbeiten soll, wenn Sie sich auf eine Prüfung vorbereiten, ...</p>
+<p>Im <span class="task-link s_7c2shn exec">Lösungs-Code</span> sind die beiden Möglichkeiten aufgeführt, Kommentare zu schreiben:</p>
+<ul>
+<li>Der <strong>Zeilen-Kommentar</strong>, der mit <code>//</code> beginnt und bis zum Ende der Zeile geht</li>
+<li>Der <strong>Block-Kommentar</strong>, der mit <code>/*</code> beginnt, über mehrere Zeilen gehen kann und mit <code>*/</code> endet</li>
+</ul>
+<p><span class="task-link s_68hoot action">Führen Sie den Code aus</span></p>
+<p style="padding-left: 20px;"><span class="hilitecolor3 n_ias5zu">Es sollte dann <code>Hello World</code> auf der Konsole erscheinen (ausgegeben werden).&nbsp;</span></p>
+<p><span class="task-link s_qmvhoi action">Ergänzen Sie eigene Kommentare und führen Sie ihn noch einmal aus</span></p>
+<p>Beachten Sie, dass außer der Ausgabe von <code>Hello World</code>, immer noch keine weiteren Aktionen ausgeführt werden, da Sie keinen Code geschrieben haben, der etwas "macht".</p>
+<div id="c4tn8p" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Wie führt man noch mal Code aus? Und was tut man bei Fehlermeldungen?</span></div>
+</div>
+<div class="hint" data-uuid="qf6eim" data-hint="U2FsdGVkX182rTL2RBBlkSiNy4uhLq7M3QlATP2V6qFBpCH2qeG+O5sQcTEq0+r6C/sQr7vtLloqROVbc1baZolChEvsc8xjYWNdWZfq/gVhvel2IKdob4mmBlbFM56X6aqifrvcTE7qW6XOhTbBEpXAdcEijYRY711u+NgS98sJRXWvWHvSaKv6QZCcKvm1vWsCaIFBaXVTdOY4d6sVx0NHD1ipaIw1hVwfVKQ68cusNVT2wU+Ey4I6P4ADTmgq6zCDtcPb2jtvd3UyrcsJGkZ8WsU+bRTuMnmNflXT0jje/lneQWriY8sU+Z5J+yJ+c1PkJK55Jr+ugRrj0CBXTBs0fLlnFDrlQOIaybWFXNLljKoAp1BkVs9glP+lXQBOjnzsO0A7JbVC6kKD38ARiggHL8J5M6lLwGx4T0jztw3bnWbwaUxvNckwRez0W6Bf8Et78FjJ5Iw7tsuGz+y7NdPrlD4UDE8YbEU4nj/iJHYHlbz2b1NiNytIDFu5hQFDjmd0RZAXReglXFkuln0uFn5dzgoreGBP/cEr+l5mhF0ehzeiyeWQFMnUdowU6OBoiunv3Gc6+FvyoKm1D5KFqQJ51mRtok5KY9ZDV787KR2kmgI7hP9MqoeQY6IOXCcvEwhsmaGxO8wE1E8HIkbGDdZcWMyOfMl5xY+cSgjm+3bZ7c0LTuZpJEHi0+xA+KCkkj03Xfv1stzHBbnmb92WKpGGDLG1R9ruvujY093hiOubo/KAecbUOgkFS+rFtboUS5K9DbwjHVxsUqgBDiJBkU0rjeZQDFGF2YrdtGIryHYhFLlyFA0egsSo9qz67qC/AwkohWwXcTtVQ3/niBu0FyUOAoOQ2OKskckO1Da3B2UAJWsAY81KVMIz5FslmnjFqyRZ07tNcnSg/m4OGRvmkrl9lshtdeck2HnpYkoEf0HwfFp4tNdUG1iZTZoKM8Q2Q3UNkgBEmX/VwOaD4HWKdjGrNiQn8Eawa2rU35IpIfT9HL6TyS5zI7jE5/ZkxoTJbvy3eZuDbFq+/7SBqojWX7iILqS5Z1DVe9nq/34yYA0W7YqmgF5tJnF7XuTibDpbtKd3EFAHKJDA5iEvPizwjshXpen6F5329WVWskckDqFr4ECVC8BasWswsOZxjXbFbmBAuS8ogZC5B6c2zG5djg==">&nbsp;</div>
+<div class="hint" data-uuid="s3aaz5" data-hint="U2FsdGVkX19aSK1Rcq3kaiimoUHMrmMCWzz+qoce+p+QR741etAQB/BdkUwde6EkdzQwlDAu9tIkPNiLyGnr5pMlf3fT92XDSYjyjkTzdEKgFa8mu7Nc+9vTFDoKw+8IkfsqqmrOAoQbgSMMdHkNR2ORf74KJc3kONoVPUhfMSwHSH3b0L+8u6JVHqKDyKocidsapKRfgsG3fs3Lv/DEmfFwzQ8CTFjniwYEEOeFZJPGo49xORW0GqqK92qURDBf4FMCw+NYo+gu3OyQt6LtTQ2t2kqt1Q5gJkdlf5VwtbzEZLsYmZlx9c3TM3pkDX15+J3eA2AleMsZcDWOdDHwLuac+hUND6BLf12KWUAo8m0CdaMW7PvIQgcf3VhP65y+WZxvnnUH2wDpIImfd+lryJmGukAoo6UJA9GV/XF1OjjbPn3zvdBdDTne2ELiKz5grZqzRgFiZB8BaAYdbYS9eH2VeB+Wq/hKgxFrNc6xqha9t5iey0hN06auilEtmNSMBrjpuDvD74AygWpgrFNzpHIx+f2ekgPYLOUiTInzVouzzQclk63tf6/YZcxw9m3K8qKEF+hxfPy9CGfDOxbMUTVzsRUGJ2dpkCahGsdjaQrWe5pLQeXnXuCFhG257gz3ialZRNZ7HowsqK7FliuR2+TwJ8S6PLVA7Q+lX7CnBQ5i/JQturx3Ndyl4qa7w9ISo3Vm7fURzQSQI2yM0nyA004Pmk/BT5lf9ZmWmxzfIUn4iHoKz3rLVhvp2Q5k/CUGo7yHbYe+vIhGJbwvmijAzIlK7dXipsYjW/SzaNnxfZsnixsEv+i2ePhjn538MQSMIGI9QQf1Ww6BbK86Uy8le97/Fxye+bmgdqXF95dQ9r0zdbRExF0U+jEWXbAyRVTK">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h1 data-number="2">Variablen definieren</h1>
+<p>Jetzt geht es endlich los mit dem Thema <em>Variablen</em>. Diese speichern Werte von unterschiedlichen Datentypen.&nbsp;</p>
+<p><span class="hilitecolor">Sie definieren nun jeweils eine </span>Variable <span class="hilitecolor">von jedem primitiven Datentyp</span> <br>(<code>long, int, short, byte, float, double, boolean, char</code>).&nbsp;</p>
+<div id="u0vqz9" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Wie wird nochmal eine Variable in Java definiert?</span></div>
+</div>
+<div class="hint" data-uuid="s5ujvs" data-hint="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">&nbsp;</div>
+</div>
+<p><span class="task-link s_dwww8f exec">Definieren Sie die o.a. Variablen im Code</span></p>
+<p><span class="task-link s_fh237z action">Zum Testen führen Sie den Code aus.</span></p>
+<p style="padding-left: 20px;"><span class="hilitecolor3">Wenn es keine Fehlermeldung gibt, haben Sie korrekten Java-Code geschrieben.&nbsp;</span></p>
+<div id="76ykox" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Wenn es doch Fehler geben sollte</span></div>
+</div>
+<div class="hint" data-uuid="6udv8e" data-hint="U2FsdGVkX1/XLqOzTo5U7BaAfhuMLaDScvxKDMAnbwnFSzRpHhvcTNTMHia99Xsc8dSiPSpzht46aXudyioNhKfoGtUFe45vGgdjrfChOBxUNDDJtxWqVi8F5jFf9OzRclMmMIlLRd3EaymAYhdNj+PG6++2xyrpT2wz7LMgNwfSc8gQZayy35/mOAEkh4df6u0woFg1e8yZNBDPbE3pvsErRI6KVSLYGxcfuAvlcCPAHxYg9hGvWHxvy7yE8FrtA/UUICD3akCT5+HcLkLrnfQNJ7HPxBAcnlQRHpmerMdbFealI9Ro8vpvd+hDEOxj6yzrjiGypY0e2tII7ucXIAMu0D0fFZrO1DddfSbPAc4v0WxtE1smxKVRmPOC4+6opZx0dnVLgRl2ggRwuRkOfUWyUufgKrbJyJdHhx91FEEhn8NxeCX1oFcw4y36BNUKu0CA7+Wjj24/Oq8shzyrBlWkjwcSRGLmoJCheCz9ayIQhVIv3clbg8OndEK8Yz8q+pbDMnADuGb9G6ULrMtI9wxntGPacbcayqyOIMl+VFiPdEB+PVdeXSoWOlTwu/o4Ex6TWgbsuUHNiWd2JwUH/SVURBanG6G2LqQWMM3yOPWQ8/uhRCGtFbe/UsuGD2q3AUbX1PUkCPFOKqrvIyRN9IXNT9kpSMy0yJADLQ78RxoZLyGQ0p7einOLUt1hLiaU8621HMle0qd2fOqwV8fzoKdkFzu79L6+7UYJAVqWQuqSesN0XrG60qIG/bktb+8CW92Z0/y5fm8Yfk7BualCbKdq0Zul6GhkrLc8kR6NZsULUHDrzc3L3n/12mHfiH9andkcvA2piMVZAyIHMDoBOzMrT9kDo+vmYtBOH4XV5yV6hG/BooiG6sJhrr1EC5crDkq/906QrP6oBWnOjqNWlYssttXcd6DgqhIXi6rEHOH3dozTjFTYPIMB09yl9p9g8AvtSbtPh2Ji8f2KzwYVaMjWSlMpttkyaZwZwzfT5FLCBu59lCaFR3I3H8QLk2avCIu9g7dRtP4x18tikV3hR8T/3cRZXVMn3zhwKJ7XWQ/xMOoyyWdGAfbFR7DL8c5t8ucEjuYn6cK8kPc3QbIqcQ3FxwvQA30CzXLMc2+wRk77mVfh5ELnpwcTK7szWr13aRn3pvSdeT8cXy3/ON8EpNAa5n7tlTiF/BlX822Rj8tskzR6qNpZXZsurxSxaYNNrHZnCDm7y6uRFubMplAFBdmA5lFtteuiez3SmFlAXRq+ey+cTicG/fPy61ppt3XTatAuXxyuM/wdehw7Z9lBNP1wnLpEwb59Fj4FQqVGIWNx9yjg5teRJZ0EFJzNUnK7NkbRbfLTdFdT9ybL9B3sBA==">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h1 data-number="3">Variablen Werte zuweisen</h1>
+<p>Nun weisen Sie den oben definierten Variable Werte zu, oder anders ausgedrückt: <br>Sie schreiben Werte in die Variablen. Das geht auf mehrere Arten, von denen Sie jetzt zwei ausprobieren.</p>
+<h2 data-number="3.1">Werte zuweisen - Literale</h2>
+<p>Weisen Sie den oben definierten Variablen nun Literale (also direkt angegebene Werte) des <em>passenden </em>Datentyps zu.</p>
+<p>Beispiel: <code>einInt = 123;</code></p>
+<p>Verwenden Sie jeweils ein passendes der unten angegebenen Literale für Ihre Zuweisungen an die oben definierten Variablen.</p>
+<p><code>123&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -132.8&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-132.8f&nbsp; &nbsp; &nbsp; &nbsp; -21932&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'w'</code></p>
+<p><code>true&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;false&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.0e-6&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;72763&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0L</code></p>
+<p><span class="task-link s_42reb2 exec">Ergänzen Sie die Zuweisungen im Lösungs-Code</span></p>
+<p><span class="task-link s_rptw4b action">Nun führen Sie den Code aus</span></p>
+<p style="padding-left: 20px;"><span class="hilitecolor3">Wenn es keine Fehlermeldung gibt, waren Sie erfolgreich.</span></p>
+<p>Für die Zuweisung müssen die Variablen (natürlich) definiert sein. Das haben Sie im Code der vorangegangenen Aufgabe oben gemacht.<em> Der Lösungs-Code aller Aufgaben in diesem Dokument gehört zusammen.</em> Wenn Sie den gesamten Code ausführen, werden sowohl die Definitionen als auch die Zuweisungen ausgeführt.</p>
+<div id="pbm972" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Beachten Sie, dass weder durch die Definition von Variablen, noch durch die Zuweisungen etwas auf die Konsole ausgegeben wird.</span></div>
+</div>
+<div class="hint" data-uuid="nh1p8i" data-hint="U2FsdGVkX1+eEX3dO5FdUmSR0Xl5AR6lGDtj0wGTeEtM9c2WZaXT5Ti72s6DHUAmnLaTObFHH67pPl34QmBPXki0OvM7Q1nPhA9qfbhNNwaQQKK2U9IY1Eu7PSQtk8WlQpfHRxRreRw9rd76jqbYCwCeZQHMIcLXoZjkjqbACgks7wSlQG29vKRz8Moeo1Z9jqrIgM8CSmjRSDd2wolbH+STcFdpKQsytYg7Cai+flxspY0BSrept3GJwsZ8X/2gsXn8JlD3QWkH954gOjSpu4r4a2eqse/9wBud1VTTRP7kqzfVp/STcHA18uoJIYTjrfX0rz/Z2NYICIOiwp7SSGSiapP9p+3k+Q4uhGDA5O3xMRU2FJboBk5SNy9yUmVFdPX7wQvdSenmulfrp+1YAi5+xOg8B6hn1O7KdTxoKcCNPtULa/aVkN6Kj1V3GcUN6JRKQKz/79GSM0HXBckTqqZu41q7xU4VNAa9Al8hebuXX7zeJcuOmqOFZiHOfSwCkYum36TwWCexJiVrysuzqGdbvCe9NZQ5LXLoLTfuVUn8YdUd4/pV9rjqcQABe65LK8Bvu+8uSKSUuLJvY5ZSLjv/+78eHlZuy1OJq01KAYGGzw2e6EkkT90c6BjU0l1jP9yw9ThiBwaff2Nwbx8syQQsyrq2yaBlzLGB+guVPNCpmnxoeV7H4BSakmF1JSKkM6D1r8AvpS+rsvaLxEoxaGdBNWN/6PxJTpeDnVuNO4ntHqZRiCc2tUZr6edhrs2bn5VQ9o7wkdS3R1bKIv3m5btv91Yis6Y2vJZySTqfgbQGyubz0i6rs4il7C9Jct60zIupj0K73eJIvMpEdbaH+FN+pLXZwSB5c9WZNfdQ5RLNkWW0z0iBCDxgnrksZFkTg0Zta71xyUl3JNQ+YOkQiLndcimZ26lrH8yZ97L8Bomq9YekeU+IJVTyzlQyADtPZxuFaKq1hKc2GkOyQATgdAnnCYvkY2p5Z9B06Igbnd9JihFueqpFMBhtsnrGtzBYGkNiegrrFnj7O85SjABNtBzRjBoPlIB/q1JuFoEvQHc=">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h2 data-number="3.2">Werte zuweisen - Variablen</h2>
+<p><span class="hilitecolor">Probieren</span> Sie nun einige (ca. 10) Zuweisungen der oben definierten und mit Werten gesetzten Variablen untereinander, z.B. <code>einInt = einFloat;</code>&nbsp; Probieren Sie insbesondere aus</p>
+<p>- die Kombination von verschiedenen Zahlenarten untereinander</p>
+<p>- die Kombination von Zahlenarten und <code>boolean</code>&nbsp;</p>
+<p><span class="task-link s_bd9g2j exec">Ergänzen Sie diese neuen Zuweisungen im Code</span></p>
+<p>Zum Testen müssen Sie wieder den gesamten Code ausführen, da Sie die dort definierten Variablen hier nutzen wollen.</p>
+<p><span class="hilitecolor3">Wenn es keine Fehlermeldung gibt, waren Sie erfolgreich.</span></p>
+<p><span class="task-link s_bwno20 text">Welche dieser Zuweisungen sind erlaubt, d.h. sie lassen sich compilieren?</span></p>
+<p><span class="task-link s_opow0k text">Welche Fehlermeldungen bekommen Sie?</span></p>
+<p><span class="task-link s_p40zas text">Warum funktionieren manche Kombinationen aber andere nicht?</span></p>
+<div id="5lh0pc" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Erinnerung: Beantworten Sie die Fragen, indem Sie auf das Fragezeichen klicken. Dann wird eine Text-Zeile eingefügt in die Sie Ihre Antwort schreiben.</span></div>
+</div>
+<div class="hint" data-uuid="u5wlhl" data-hint="U2FsdGVkX1+8hzHEoit1u1vQsx0XEDM7Xqv+4ydeTQTmHnP2hT09XYhn/wwFfrqzPjh+GHqXoshmg+GbyfESqTnZ7oMJRZRvpG4LczNAHiFpzzIL5IM4F7Zf3kPcmQYptD9SVvp5EXjUj2sU2Do4zmCJg4bxAM/JmwZFXIEdL0KrRATjMCAxAZUrluFVPsepuPy73awgVV9jJikPCOlQY1xy1LCSpryfGts+QOuB01B88ShW8rRrcwCpKdcDS5+2+YN2sqr4FrKEm/MnPesjfqzavVg33G0e7fh3wZ9J8Z+3EVBQ741MWedfT0upyxyNnFUsRCpYofvT7nwnxzAnDMbzPqEP0ruZlHWcYUw9To4LV4aWOj+V0BrpRpM5KOlWSEhPodvF84vi5pHkoV6qlQCymfO/dJS4kp1TBFDTT28yKGuPQrCIQtqdJ+5PBp/tMUqEcRD3C765gE6T+3hkDwez9TYXDbmSK5zObfzprNM2vNZupbsmm/CkYjuHjFbg4WpfxAbZRh5mgt2n95PtafCYW4dbuTOZ6M5GI5iIkN8EgdRpEAeSAAQ0UUL1boIebBcFEhGEa6k+Eb3UlAmtMx03eedjbPVS7RmhIj+/AVC3YRg9AeMFh3zvxeUa1kRg">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<h1 data-number="4">Ausgabe von Werten von Variablen</h1>
+<p>Um den Wert einer Variablen auf die Konsole (das Fenster, das auch schon „hello world“ angezeigt hat) auszugeben, verwenden Sie ebenfalls die <em>Ausgabe-Anweisung</em> <code>System.out.println()</code>, die Sie schon kennnengelernt haben. Was genau diese Anweisung macht und warum sie so aufgebaut ist, lernen Sie schrittweise bis zum Ende des Semesters.&nbsp;</p>
+<p>Wenn Sie den Namen einer Variablen in die runden Klammern der Anweisung schreiben, wird der Wert einer Variable auf die Konsole ausgegeben.</p>
+<p>Beispiel: <code>System.out.println(einInt);</code></p>
+<p><span class="task-link s_x8rhco exec">Ergänzen Sie den Code</span> so, dass dadurch den Wert <em>einer </em>der oben definierten Variablen auf die Konsole ausgegeben werden.</p>
+<p><span class="task-link s_dyopa8 action">Probieren Sie das nun aus, indem Sie den gesamten Code ausführen.</span>&nbsp;</p>
+<p><span class="hilitecolor3">Nun sollte (endlich) der Wert dieser Variablen auf die Konsole ausgegeben werden.</span></p>
+<p><span class="task-link s_fn6cf1 text">Warum müssen Sie auch hier wieder den gesamten (bisherigen) Code ausführen?</span></p>
+<p>Damit der Compiler den Wert der Variable zuweisen kann.</p>
+<h2 class="e_vyu9nr" data-number="4.1">Mehrere Variable ausgeben, Text und Variable ausgeben</h2>
+<p>Wenn Sie mehr als eine Variable und/oder erläuternden Text ausgeben möchten, gibt es mehrere Möglichkeiten. Diese unterscheiden sich u.a. dadurch, wann ein "Zeilenumbruch" stattfindet. Ein Zeilenumbruch setzt den Cursor an den Anfang der nächsten Zeile. Die folgende Ausgabe beginnt dann also in der nächsten Zeile).</p>
+<h3 class="e_l3wbwr" data-number="4.1.1">Variante a) Jede einzelne Ausgabe erscheint <strong>in einer eigenen Zeile:</strong></h3>
+<p>Dazu schreiben Sie einfach mehrere Ausgabenanweisungen.</p>
+<p>Der Übersicht halber schreiben Sie jede Anweisung in eine eigene Zeile!</p>
+<p><span class="task-link s_b0ucn2 exec">Ergänzen Sie den Code </span>so, dass die Werte drei der oben definierten Variablen jeweils in einer eigenen Zeile auf die Konsole ausgegeben werden.&nbsp;</p>
+<p><span class="task-link s_wfh1qd action">Führen Sie den gesamten Code nun aus </span>und überprüfen Sie, ob das erwartete Ergebnis auf der Konsole dargestellt wird.&nbsp;</p>
+<p>&nbsp;</p>
+<h3 class="e_z4lzt5" data-number="4.1.2">Variante b) Ausgaben <strong>ohne Zeilenumbruch, d.h. mehrere Ausgaben in einer Zeile</strong></h3>
+<p>Dazu verwenden Sie eine Anweisung, die sehr ähnlich aussieht:</p>
+<p><code>System.out.print(einInt);&nbsp; // print anstelle von println, d.h. <strong>ohne ln</strong>&nbsp;</code></p>
+<p><span class="task-link s_98bg4m exec">Ergänzen Sie stehenden Code</span> so, dass drei der oben definierten Variablen auf die Konsole ausgegeben werden.</p>
+<p><span class="task-link s_96t3v2 action">Führen Sie den gesamten Code nun aus </span>und überprüfen Sie, ob das erwartete Ergebnis auf der Konsole dargestellt wird.</p>
+<p>&nbsp;</p>
+<h3 class="e_7anw8z" data-number="4.1.3">Variante c) Den Text der Ausgabe mit + zusammensetzen</h3>
+<p>Sie können auch mehrere Elemente zusammen mit einer einzigen Ausgabe-Anweisung hintereinander ausgeben. Diese Elemente setzen Sie mit + zusammen.&nbsp;</p>
+<p>Beispiel: <code>System.out.print("Das ist der erste Wert: " + einInt + "und der zweite: " + einDouble);</code></p>
+<p><span class="task-link s_8yb9s4 exec">Ergänzen Sie den Code </span>so, dass&nbsp; weitere drei der oben definierten Variablen auf die Konsole ausgegeben werden.</p>
+<p><span class="task-link s_q49dsl action">Führen Sie den gesamten Code nun aus</span> und überprüfen Sie, ob das erwartete Ergebnis auf der Konsole dargestellt wird.</p>
+<p>Wenn Sie möchten, probieren Sie <em>danach </em>noch ein paar andere Varianten aus, in dem Sie <code>print</code>- und <code>println</code>-Anweisungen im Code variieren.</p>
+<p>&nbsp;</p>
+<h1 data-number="5">Initialisierung von Variablen</h1>
+<p><span class="task-link s_b4r4wp exec">Ergänzen Sie den Code</span> um diese Zeilen incl. (!) der Block-Kommentar-Zeichen /* und */:</p>
+<p><code>/* Fehlerfall<br></code><code>int variable1;</code><br><code>int variable2;<br></code><code>variable1 = variable2;<br></code><code>*/</code></p>
+<p>Nun <span class="task-link s_5cvgma action">selektieren Sie die drei mittleren Zeilen im Code und führen nur diese Zeilen</span> aus. Das geht über das Kontextmenü, das Sie erhalten, wenn Sie mit der rechten Maustaste im selektierten Text klicken:</p>
+<p><img src="data:image/png;base64,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"></p>
+<p><span class="task-link s_1853yp text">Welche Fehlermeldung bekommen Sie nun?</span></p>
+<p>Der Compiler ist auch hier wieder sehr vorsichtig ("Schisserprinzip" :-): Da Sie im Code nicht angegeben haben, welchen Wert variable1 hat, ist dann auch nicht eindeutig, welchen Wert variable2 nach der Zuweisung hat.&nbsp;</p>
+<p><span class="task-link s_8hcca4 text">Was müssen Sie tun, um diese Fehlermeldung verschwinden zu lassen?&nbsp; </span></p>
+<p><span class="task-link s_8hcca4 text">Die Variablen jeweils Werte zuweisen</span></p>
+<div id="vz2h9v" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Die Lösung steht hier zur Kontrolle, denken Sie aber zuerst selber nach!</span></div>
+</div>
+<div class="hint" data-uuid="fast07" data-hint="U2FsdGVkX18l3pHTp/d6JbflM1nojJo96vxvlZ2i1YbwaKXjaUiwZQGL5v1nl52jg5hpmWYz6xi8gxAWWk0Y1/n39bXb2JkyyFDmuqb/DZpaVu7lWR9QN5F7bCionlNAYOJhDQxqkQeF5bjYLVvnEiVYMjBqvRYySzaJ/ZjjZmzqUeX1pSSaUPSvuRYp2T97v2gpmC+sjIoy+pxxpfStQiW3yXNjMf7E2XTilhySei7LuccQqZWKJlm3shuzLHz2MW5V0C278ch1t+FpiKugo2H7cTxWaBXzfSHoM7j5A4rMNkt8hN86Qq2AaEAIjG0CkLzJSUf7RIW55o53HYME3yzHxaxKQ9ihqIRXwbUDI1UT0prA1gsl2OiiH4fIN0iY2RCz5F0AgxrgLXJxvSP+c3qH2/fAICT0qTuFYxEZ83Xw9tV7LpNmRwvL5au+gYCf6SiSu46VC9zpd3fOtTF/3D6sRyUVlb+l2TCNMvgp+MgsRgnnDfg2OtZwelb4Ij2b+zQTwBlo5UDRlvX4Qt93BSxFYrv9DR6xemvvuS0gjK5bxqYYxFB4bw/KPwiteHJ9Qo3C7VzAh5UWsoQgcTaNpYAzMZzAH9V/K1Rl/OLD5waNMABAjTJg2ukwHV1OpA/d">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="task-link s_8pqybm action">Kopieren Sie den fehlerhaften Code-Block oben, korrigieren die Kopie und führen nur diese Code-Zeilen aus.&nbsp;</span> Nun sollte keine Fehlermeldung mehr erscheinen.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Tipp: Variablen der primitiven Datentypen lassen sich schon bei der Definition einen Wert zuweisen. Man kann also in diesem Fall zwei Zeilen für die Definition und die Initialisierung schreiben, muss es aber nicht. Der Code in einer Zeile ist kürzer und damit übersichtlicher.&nbsp;</p>
+<p>Beispiel: <code>int huhu = 34;</code></p>
+<p><span class="task-link s_ydwhv4 action">Probieren Sie das am obigen Beispiel aus</span>.</p>
+<p>&nbsp;</p>
+<h1 data-number="6">Operationen auf Variablen</h1>
+<p>In diesem Abschnitt lernen Sie einige Operatoren kennen, die auf ganze Zahlen angewendet werden können.&nbsp;</p>
+<h2 data-number="6.1">Einfaches Rechnen</h2>
+<p>Die einfachen Rechenoperationen <code>+ - * /</code> funktionieren natürlich auch mit Variablen eines Zahlen-Datentyps.&nbsp;</p>
+<p><span class="task-link s_don9p3 exec">Ergänzen Sie den bisherigen Code</span> so, dass Sie jede dieser Operationen nun mit passenden oben definierten Variablen und Literalen anwenden. Geben Sie dann das Ergebnis auf die Konsole aus</p>
+<p><span class="task-link s_ddcj7u action">Führen Sie den gesamten Code aus</span> und überprüfen Sie, ob das ausgegebene Ergebnis der Rechnung stimmt.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 data-number="6.2">Post/Pre - INcrement - Operator</h2>
+<h3 class="e_kwvdmj" data-number="6.2.1">Post-Increment-Operator - einfach</h3>
+<p>Nun kommen Sie&nbsp;zu spezielleren Operatoren, die mehr Mitdenken erfordern:</p>
+<p>Um das Erhöhen eines Wertes um 1 (oder auch "inkrementieren") abzukürzen, für faule Programmierer :-), aber auch, um den Code kürzer und damit übersichtlicher zu machen, gibt es einen speziellen <strong>Inkrement-Operator</strong>:</p>
+<p>Wenn die Variable <code>int zaehler = 5; </code>definiert wurde, <br>kann man <code>zaehler = zaehler + 1; </code>schreiben<code>,</code> um den Wert der Variablen um 1 zu erhöhen. Statt dessen kann man auch schreiben:</p>
+<p><code>zaehler += 1;</code>&nbsp; &nbsp;schreiben oder auch ganz kurz: <br><code>zaehler++;</code>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dabei ist <code>++ </code>der Post-Inkrement-Operator.</p>
+<p><span class="task-link s_nhi39c exec">Ergänzen Sie den Code</span> um beide Arten Anweisungen, die den Wert einer Variablen inkrementieren und ihn dann auf die Konsole ausgeben.</p>
+<p><span class="task-link s_czdvan action">Führen Sie den Code aus </span>und überprüfen Sie, ob das ausgegebene Ergebnis Ihren Erwartungen entspricht.</p>
+<p><span class="task-link s_ngssyo action">Dokumentieren Sie in ihren Code</span> das Ergebnis.</p>
+<div id="9drpka" class="hint no-edit">
+<div class="header">
+<div class="wrap"><span class="title">Sie können für die Dokumentation der Ausgaben, die Ausgabe in der Konsole auch kopieren und in den Code (oder Text) einfügen.</span></div>
+</div>
+<div class="hint" data-uuid="tfm3xo" data-hint="U2FsdGVkX19xjSH8tNsiKeaoFp6b/O/m56Xr/B46/QTjD36OBvQowxGStjak6tTjj28jFqAwNa8vyuiDeeV5oqtA/uoIL+rQ59Jfe8Zxj/bFzJ/OATzMSgcNn6cYmkcKEuwz30fDIgjBZ2ppZN1EV5uhwrL9zD2UidCkNSDE6BucQfZNMOTjYkAHvROwNGBUW37hdDZfETQtFPlV979b4CvFi7+3UfUHqNkux5YaWHC+Q5zvVJKmXytiy/nHK96ntEtmt8dMS/nFfz4DsqM1Y1PViHawvbQ2TZ3KDqHCDx0pkUAYlDKr0inTViJffpFT8X623lEutC3+hGbIniG7k6Exu3TaNvQJAi/1NUPPg+z2x4cAD0Msm+Yq0uSCw9Rp0TP2ypMzlnaWLMuM3eCFgCwIxFPNBc91Yg7+vFtY/z5KKx9Axu9N69SfsL0biO6I0YJ24ynm80b9S+nX2nXaZXes/2RQnPCAsdbpRM/Ce8ti5y2nl9Zxag99eiS1dB3y+ySJUtdayYpzyaRChSn5dDbKK6zH57YLLVJ64z/1VlFumwj7/VPHevmHMAlcDnN5/hui7kRfynXKx2gmeqdeRQ==">&nbsp;</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="task-link s_k0ffek text">Haben Sie das Ergebnis verstanden?</span>&nbsp; D.h.: Ist Ihnen klar, was diese Operatoren machen, und wann?</p>
+<p>&nbsp;</p>
+<h3 class="e_g0seeo" data-number="6.2.2">Post-Increment-Operator - tricky</h3>
+<p><code>zaehler++</code> ist nicht nur eine Anweisung, sondern auch ein "Ausdruck", der immer dort eingesetzt werden kann, wo auch <span style="font-family: monospace;"><span style="font-size: 15px;">zaehler </span></span>erlaubt ist.&nbsp;</p>
+<p>Beispiel: <code>int next = zaehler++;</code></p>
+<p>Dass diese Anwendung etwas tricky ist, probieren Sie nun aus</p>
+<p><span class="task-link s_3r0van exec">Ergänzen Sie daher den Code</span> um diese Anweisung und geben Sie die Werte von <code>next </code>und <code>zaehler </code>auf die Konsole aus.</p>
+<p><span class="task-link s_fmbdkz action">Führen Sie den Code aus</span> und überprüfen Sie, ob das ausgegebene Ergebnis Ihren Erwartungen entspricht.</p>
+<p><span class="task-link s_a4xlca action">Dokumentieren Sie in ihren Code das Ergebnis.</span></p>
+<p><span class="task-link s_6u4y3d text"> Haben Sie das Ergebnis verstanden? </span>D.h.: Ist Ihnen klar, was diese Operatoren machen, und wann?</p>
+<p>Da der Operator <code>++</code> <em>nach</em> dem Variablennamen <code>zaehler</code> geschrieben wird, deutet das darauf hin, dass der Wert von <code>zaehler </code>erst <strong>nach</strong> der Verwendung des ganzen Ausdrucks <code>zaehler++</code> inkrementiert wird. <code>zaehler++</code> heißt daher auch "<strong>post-increment-operator</strong>". ("post" = lateinisch für "<em>nach</em>")</p>
+<p>&nbsp;</p>
+<h3 class="e_i19284" data-number="6.2.3">Pre-Increment-Operator</h3>
+<p>Es gibt auch einen <strong>Pre-Increment-operator</strong>: <code>++zaehler</code>, z.B. in <code>next = ++zaehler;</code></p>
+<p>Der sieht sehr ähnlich aus wie der Post-Increment-Operator, ändert den Wert der Variablen aber schon <strong>vor </strong>dem Zugriff auch die Variable.</p>
+<p><span class="task-link s_2ko4dp exec">Ergänzen Sie im Code</span> diese Anweisung, und geben Sie danach die Werte von <code>next </code>und <code>zaehler </code>auf die Konsole aus.</p>
+<p><span class="task-link s_x5hojn action">Führen Sie den Code aus</span> und überprüfen Sie, ob das ausgegebene Ergebnis Ihren Erwartungen entspricht.</p>
+<p><span class="task-link s_na8u7p action">Dokumentieren Sie</span> in ihren Code das Ergebnis.</p>
+<p><span class="task-link s_2d6yum text">Haben Sie das Ergebnis verstanden?</span></p>
+<p>&nbsp;</p>
+<h3 class="e_fvrtca" data-number="6.2.4">Post/Pre - DEcrement - Operator&nbsp;</h3>
+<p>Ergänzend gibt es natürlich auch einen <strong>post</strong>- bzw. <strong>pre-DEcrement-operator</strong>, der den Wert der Variable um 1 <em>erniedrigt (</em>de<em>krementiert).&nbsp;</em></p>
+<p><span class="task-link s_uhjr6s exec">Ergänzen Sie im Code</span> Anweisungen, die den Post- und den Pre-Decrement- Operator verwenden und geben Sie danach die Werte von <code>next </code>und <code>zaehler </code>auf die Konsole aus.</p>
+<p>Z.B. indem Sie den Code, den Sie oben für das Ausprobieren des post/pre-increment - Operators verwendet haben, in einen neuen Codeblock kopieren und statt der increments (<code>++</code>) nun decrements (<code>--</code>) berechnen.</p>
+<p>&nbsp;</p>
+<h3 class="e_xyahj5" data-number="6.2.5">Vorsicht bei der Verwendung</h3>
+<p>Um keine Verwirrung und unerwartete Ergebnisse aufkommen zu lassen, sollte man sehr <strong>vorsichtig </strong>mit diesen "Auto-Increment-Operatoren" sein.&nbsp;</p>
+<p><span class="task-link s_ltnk3d exec">In Ihrem Lösungscode </span>finden Sie ein paar vorgegebene Zeilen Code zu diesem Unterkapitel.&nbsp;</p>
+<p><span class="task-link s_rywj1o action">Vollziehen Sie</span> nun Schritt für Schritt den Code nach und <span class="task-link s_rywj1o action">tragen Sie jeweils die von Ihnen <em>erwarteten Werte</em> von i und j in den Code ein</span>.</p>
+<p><span class="task-link s_f4zjoi action">Löschen Sie </span>nun die Kommentar-// vor den Ausgabe-Anweisungen und <span class="task-link s_f4zjoi action">führen Sie den Code aus.&nbsp;</span></p>
+<p><span class="task-link s_f4zjoi action">Dokumentieren Sie</span> in ihren Code jeweils das korrekte Ergebnis.&nbsp;</p>
+<p><span class="task-link s_04grbj text">Haben Sie das Ergebnis jeweils verstanden?</span></p>
+<p>&nbsp;</p>
+<h2 data-number="6.3">Modulo</h2>
+<p>Ein eher selten verwendeter, aber dann sehr nützlicher, Operator ist der Modulo-Operator %, der den Rest einer ganzzahligen Division angibt. <br>Beispiel: <code>9 % 4 ist 1</code></p>
+<p>Beispiel: Eine Fließkommazahl soll auf den nächsten Hunderter abgerundet werden</p>
+<p>Beispiele: Ein Originalwert von 523.34 ergibt abgerundet 500.00, ein originalwert von 4567.39 ergibt abgerundet 4500.00</p>
+<p>Der "Abstand" (Differenz) vom Originalwert zum gewünschten, abgerundeten Wert entspricht also genau der Berechnung von Originalwert modulo 100. Im ersten Beispiel ist die Differenz also 23,34.</p>
+<p>Den abgerundeten Wert erhalten Sie&nbsp;daher, wenn Sie vom Originalwert die Differenz abziehen, im ersten Beispiel also: 523,34 - 23,34 = 500.</p>
+<p>In Ihrem Lösungscode ist ein Ansatz zu einem kleinen Programm bereits vorgegeben, das diesen Rechenweg umsetzt. <em>(Ja, das geht alles viel schneller und mit weniger Code, hier geht es darum, sowohl LVÜAC als auch den Umgang mit Variablen und dem Modulo-Operator zu üben)</em>.</p>
+<p><span class="task-link s_spizxe exec">Ergänzen Sie im Lösungscode</span> unter die //-Kommentarzeilen eigenen Code, der das tut, was der Kommentar beschreibt.</p>
+<p><span class="task-link s_57vm06 action">Führen Sie den Code aus und kontrollieren Sie</span>, ob Sie das geforderte Ergebnis bekommen.&nbsp;</p>
+<p>&nbsp;</p>
+<h1 data-number="7">Logisch</h1>
+<p>Nachdem Sie&nbsp;nun viel mit Zahlen gearbeitet haben, lernen Sie zum Schluss auch noch ein wenig, mit logischen Variablen umzugehen.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 data-number="7.1">Vergleichs-Operatoren</h2>
+<p>Definieren Sie drei neue Zahl-Variablen, weisen Sie ihnen Werte zu und vergleichen Sie sie auf vier verschiedene Arten miteinander.&nbsp;</p>
+<p>Die folgenden Operatoren können für den Vergleich genutzt werden:</p>
+<p><code>	&gt;&nbsp; &nbsp;&lt;&nbsp; &nbsp;&gt;=&nbsp; &lt;=&nbsp; ==&nbsp; !=</code></p>
+<p>Weisen Sie das Ergebnis jedes Vergleichs einer neuen logischen Variablen (Datentyp <code>boolean</code>) zu.&nbsp;</p>
+<p>z.B.: <code>boolean ergebnis = (a &lt; b);</code></p>
+<p>Geben Sie das Ergebnis jeweils auf die Konsole aus.&nbsp;</p>
+<p><span class="task-link s_s4t1ol exec">Ergänzen sie den Lösungscode</span> um Anweisungen, die genau das tun.</p>
+<p><span class="task-link s_79ec8k action">Führen ihn aus und kontrollieren Sie,</span> ob Sie das geforderte Ergebnis bekommen.</p>
+<p>&nbsp;</p>
+<h2 class="e_ov4sq7" data-number="7.2">Logische Verknüpfungen</h2>
+<p>Dann verknüpfen Sie die oben definierten logischen Variablen, mit den logischen Operationen UND, ODER, EXKLUSIV-ODER und NICHT. Die Syntax für diese Verknüpfungen ist in Java:</p>
+<p>UND: <code>&amp;&amp;</code> &nbsp;&nbsp;&nbsp;&nbsp;ODER: <code>||</code>&nbsp; &nbsp; Exklusiv-ODER: <code>^</code>&nbsp; &nbsp; NICHT: <code>!</code></p>
+<p>Nutzen Sie jede dieser Verknüpfungen einmal und geben Sie das Ergebnis auf die Konsole aus.&nbsp;</p>
+<p><span class="task-link s_c5i999 exec">Ergänzen sie den Lösungscode</span> um Anweisungen, die genau das tun.</p>
+<p><span class="task-link s_zur43t action">Führen ihn aus und kontrollieren Sie</span>, ob Sie das geforderte Ergebnis bekommen.</p>
+<p>&nbsp;</p>
+<p>---------------------------------------------------------------------------------------------------</p>
+<p>&nbsp;</p>
+<p>&nbsp;---&gt; Ergänzen Sie nun auch die <a class="u_tmo7y6 s_jhluhl" href="_2_Concept_Map_ergaenzen.flow.html#e_jhluhl">Concept-Map mit neuen Begriffen aus dieser Aufgabe</a>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------------------------------------------------------------------------------------</p>
+<h1 data-number="8">Optionale Aufgaben</h1>
+<p><em>"Optional" bedeutet, dass Sie diese Aufgaben bearbeiten können, wenn Sie weiter üben wollen.</em></p>
+<p><strong><em>Sie brauchen die Lösungen aber nicht für das Testat vorweisen.</em></strong></p>
+<h2 data-number="8.1">Polynomberechnung&nbsp;</h2>
+<p>Ein weiteres Beispiel für Rechenoperationen findet sich in der Berechnung von CRCs (Cyclic Redundany Checks). Diese werden z.B. in Protokollen für Netzwerk-Transfers oder für die Daten auf CDs berechnet, um feststellen zu können, ob Fehler in Daten vorgekommen sind. Für die Berechnung werden sogenannte „Generatorpolynome“ bestimmt.</p>
+<p>Schreiben Sie ein Programm, das den Wert eines Polynoms als Fließkommazahl berechnet&nbsp;</p>
+<p>&nbsp;(x3 bedeutet dabei die Potenzierung: x hoch 3).</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<code>genpoly = a*x12 + b*x11 + c*x3 +d*x2 + e</code></p>
+<p>1)&nbsp; &nbsp; &nbsp;Überlegen Sie zuerst, wie die Lösung aussieht.&nbsp;</p>
+<p>2)&nbsp; &nbsp; &nbsp;Beschreiben Sie dann Ihr Vorgehen im Code mit //-Kommentaren,&nbsp;</p>
+<p>3)&nbsp; &nbsp; &nbsp;bevor Sie danach den ausführenden Java-Code dazu schreiben !!</p>
+<p>ganz so, wie Sie es in der vorangegangenen Aufgabe getan haben.</p>
+<p>Definieren Sie für den Parameter x, die Koeffizienten a-e und das Ergebnis y jeweils eine Variable mit einem geeigneten Datentyp.&nbsp;</p>
+<p>Setzen Sie die Variablen auf verschiedene Werte, berechnen Sie das Polynom an dieser Stelle und geben Sie das Ergebnis auf die Konsole aus.</p>
+<p>- Verwenden Sie die vier Grundrechenarten mit den Operationen + - * und /</p>
+<p>- Verwenden Sie Klammern um die Reihenfolge der Berechnung eindeutig und lesbar zu machen</p>
+<p><em>Hinweis: der Operator ^ existiert zwar für Zahlen, er berechnet allerdings keine Potenzen</em><em>. Sie hatten ihn an einer anderen Stelle kennengelernt.</em></p>
+<p><span class="task-link s_h0f9wc exec">Ergänzen Sie nun den Lösungscode</span> um Ihre Überlegungen, Vorgehen und den ausführenden Java-Code.</p>
+<p>&nbsp;</p>
+<h2 data-number="8.2">Optimierung</h2>
+<p>Versuchen Sie, nachdem Sie eine einfache Lösung der Aufgabe hinbekommen haben, die Lösung auf geschicktere Art und Weise zu berechnen.&nbsp; D.h. versuchen Sie, <em>mit so wenig Multiplikationen wie möglich</em> auszukommen.&nbsp;</p>
+<p>Schreiben Sie dabei immer als Kommentar auf, WAS sie im nächsten Schritt codieren wollen, dann schreiben Sie als Code hin, WIE sie es tun.&nbsp;</p>
+<p><span class="task-link s_5qzl7i exec">Ergänzen Sie nun den Lösungscode </span>für diese Optimierung mit Ihre Überlegungen, Vorgehen und den ausführenden Java-Code.</p>
+<p>&nbsp;</p>
+</div>
+
+
+<div class="code-wrap"><h4>Code:</h4><div class="class-content"><br>/// Δe_7c2shn Δ 1.2 Kommentare schreiben<br><br>System.out.println("Hello World");&nbsp;&nbsp; //Der Code gibt diese Srting aus<br><br>// Es gibt zwei Arten, Kommentar zu schreiben:<br><br>// 1) Ein Zeilen-Kommentar beginn mit // und geht bis zum Ende der Zeile<br><br>/* 2) Ein Block-Kommentar kann<br>* auch über mehrere Zeilen gehen.<br>* Er wird verwendet, um längere Erläuterungen zu geben.<br>* Er beginnt immer mit /* und endet mit */<br><br>// Diese Kommentare werden vom Compiler nicht übersetzt.<br>// Wenn Sie den gesamten Code ausführen wird also <br>// nur Hello World ausgegeben<br>// Die Beschreibungen in den Kommentaren werden nicht ausgeführt.<br><br><br><br><br>// Der folgende Code ist bereits vorgegeben<br>// um Ihnen die Schreibarbeit zu ersparen, <br>// wenn Sie die jeweiligen Aufgaben bearbeiten. <br>// Was Sie genau tun sollen, steht in der Aufgabe.<br><br><br>/// Δe_dwww8f Δ 2 Variablen definieren<br>/// Δe_42reb2 Δ 3.1 Werte zuweisen - Literale<br><br>long einlong = 0L;<br>int einint = 72763 ;<br>short einshort =-21932;<br>byte einbyte = 123;<br>float einfloat = -132.8f;<br>double eindouble =&nbsp;&nbsp;-132.8;<br>eindouble =&nbsp;&nbsp;1.0e-6;<br>boolean einboolean = true;<br>einboolean = false;<br>char einchar = 'w';<br><br>/// Δe_bd9g2j Δ 3.2 Werte zuweisen - Variablen<br><br>einlong = einint;<br>eindouble = einfloat;<br>einshort = einbyte;<br>einfloat = einint;<br>//einshort = einlong;<br>eindouble = einint;<br>//einboolean = einint;<br>//einchar = einint;<br>//einshort = einboolean;<br><br>/* Fehlermeldung : Inkompatible Typen<br>*int kann nicht in boolean konvertiert werden<br>*Möglicher Verlust bei Konvertierung von long in short*/<br><br><br>/// Δe_x8rhco Δ 4 Ausgabe von Werten von Variablen<br><br>System.out.println("Das ist ein Integer: "+ einint);<br><br>/// Δe_b0ucn2 Δ 4.1.1 Variante a) Jede einzelne Ausgabe erscheint in einer eigenen Zeile:<br><br>System.out.println(einint);<br>System.out.println(einfloat);<br>System.out.println(einchar);<br><br>/// Δe_98bg4m Δ 4.1.2 Variante b) Ausgaben ohne Zeilenumbruch, d.h. mehrere Ausgaben in einer Zeile<br><br>System.out.print(einint);<br>System.out.print(einfloat);<br>System.out.print(einchar);<br><br>/// Δe_8yb9s4 Δ 4.1.3 Variante c) Den Text der Ausgabe mit + zusammensetzen<br><br>System.out.println( einint + " ist ein Integer, " + einbyte + " ist ein Byte, und " + einfloat + " ist ein Float.");<br><br><br>/// Δe_b4r4wp Δ 5 Initialisierung von Variablen<br><br>/* Fehlerfall<br>int variable1;<br>int variable2;<br>variable1 = variable2;<br>*/<br>int variable1 = 124;<br>int variable2 = 52;<br>variable1 = variable2;<br><br><br>/// Δe_don9p3 Δ 6.1 Einfaches Rechnen<br><br>System.out.println(einint + einfloat);<br>System.out.println(einint - einfloat);<br>System.out.println(einint * einfloat);<br>System.out.println(einint / einfloat);<br><br><br>/// Δe_nhi39c Δ 6.2.1 Post-Increment-Operator - einfach<br><br>int zaehler = 5;<br>System.out.println(zaehler += 1);&nbsp;&nbsp;//Ergebnis 6<br><br><br>/// Δe_3r0van Δ 6.2.2 Post-Increment-Operator - tricky<br>int next = zaehler++;<br>System.out.println("Zähler = " + zaehler + " Next = " + next); //Zähler = 7Next = 6<br><br><br>/// Δe_2ko4dp Δ 6.2.3 Pre-Increment-Operator<br>int next02 = ++zaehler;<br>System.out.println("Zähler = " + zaehler + " Next = " + next02); //Zähler = 8 Next = 8<br><br><br>/// Δe_uhjr6s Δ 6.2.4 Post/Pre - DEcrement - Operator <br>int next03 = --zaehler;<br>System.out.println("Zähler = " + zaehler + " Next = " + next02); //Zähler = 7 Next = 8<br><br>int next04 = zaehler--;<br>System.out.println("Zähler = " + zaehler + " Next = " + next02); //Zähler = 6 Next = 8<br><br><br>/// Δe_ltnk3d Δ 6.2.5 Vorsicht bei der Verwendung<br><br>// Verzwickte Anwendung von pre/post in/decrement-Operatoren<br>// Dokumentieren Sie die Ergebnisse unten in Ihrem Code,<br>// um sie beim späteren Nachschlagen sofort zur Hand zu haben. <br><br>int i = 55; // Variable definieren und sofort auf einen Anfangswert setzen<br>int j = 67;<br>i = j+34; <br><br>// Erwartetes Ergebnis: i = 101 j = 67 <br>System.out.println("i =" + i + " j =" + j );<br>// Erhaltenes Ergebnis: i = 101 j = 67<br><br>j = i + j + 12; <br>// Erwartetes Ergebnis: i = 101 j = 180<br>System.out.println("i =" + i + " j =" + j );<br>// Erhaltenes Ergebnis: i = 101 j = 180<br><br>i = j++ + 17; <br>// Erwartetes Ergebnis: i = 197 j = 181<br>System.out.println("i =" + i + " j =" + j );<br>// Erhaltenes Ergebnis: i = 197 j = 181<br><br>j = --i; <br>// Erwartetes Ergebnis: i = 196 j = 197<br>System.out.println("i =" + i + " j =" + j );<br>// Erhaltenes Ergebnis: i = 196 j = 196<br><br>// Es folgt eine knifflige Kombination von Operationen.<br>// Sie sollte Ihnen vor allem zeigen, dass solche Operatoren<br>// mit Bedacht zu verwenden sind.<br><br>System.out.println("i =" + (++i) + " i =" + (i--) );<br>// Erwartetes Ergebnis: i = 197 j = 196<br>// Erhaltenes Ergebnis: i = 197 j = 196<br><br>System.out.println("Am Ende: i =" + i + " j =" + j );<br>// Erwartetes Ergebnis: i = 196 j = 196<br>// Erhaltenes Ergebnis: i = ? j = ?<br><br><br><br><br><br>/// Δe_spizxe Δ 6.3 Modulo<br><br>// Der folgende Code zeigt beispielhaft,&nbsp;&nbsp;<br>// wie Sie mit LVÜAC zum Ziel kommen<br>// Die Überlegungen sind bereits als Kommentar geschrieben<br>// Sie ergänzen nun unter den Kommentarzeilen&nbsp;&nbsp;<br>// Ihren Code für die ausführbare Lösung. <br><br>// Definieren einer Variable für den Originalwert<br>// als Fliesskommazahl<br>// Diese Variable wird direkt mit einem Beispielwert initialisiert:<br>double originalwert = 523.34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>// Definition einer Variable für den abgerundeten Wert, <br>// das ist das gesuchte Endergebnis<br>double abgerundet ;<br><br>// Definition einer Variable <br>// für die Differenz zwischen orginalwert und abgerundetem Wert<br>double differenz ;<br><br>// Die Differenz zwischen diesen beiden Variablen wird nun mittels Modulo berechnet<br>//&nbsp;&nbsp; und dieser Variablen zugewiesen<br>differenz = originalwert % 100;<br><br>// Jetzt wird der abgerundete Wert berechnet,<br>// indem vom originalwert die differenz abgezogen wird<br>abgerundet = originalwert - differenz;<br><br>// Zum Schluss wird der abgerundete Wert auf die Konsole ausgegeben&nbsp;&nbsp;&nbsp;&nbsp;<br>System.out.println("Der abgerundete Wert ist " + abgerundet);<br><br>/// Δe_s4t1ol Δ 7.1 Vergleichs-Operatoren<br>int a = 128;<br>int b = 64;<br>int c = 192;<br><br>boolean ergebnis01 = (a &lt; b);<br>System.out.println( ergebnis01);<br><br>boolean ergebnis02 = (c &gt; a);<br>System.out.println( ergebnis02);<br><br>boolean ergebnis03 = (c != b);<br>System.out.println( ergebnis03);<br><br>boolean ergebnis04 = (a &lt;= b);<br>System.out.println( ergebnis04);<br><br>/// Δe_c5i999 Δ 7.2 Logische Verknüpfungen<br>boolean loesung1;<br>boolean loesung2;<br>boolean loesung3;<br><br>System.out.println(loesung1 = ergebnis01 && ergebnis02);<br>System.out.println(loesung2 = ergebnis01 || ergebnis02);<br>System.out.println(loesung3 = ergebnis01 ^ ergebnis02);<br>System.out.println(loesung3 = ergebnis01 &&!ergebnis02);<br></div></div>
+
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<html><head> 
+<meta charset="UTF-8"> 
+	<meta name="headingType" content="2"> 
+	<meta name="headingStartValue" content="4"> 
+<title>_4_Concept_Map_ergaenzen</title> 
+<style> 
+    body { 
+       font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif; 
+    } 
+    .segment { 
+       font-size: 19px; 
+       line-height: 1.5; 
+    } 
+    .code { 
+       color: #666; 
+       font-family: monospace; 
+       padding: 5px; 
+    } 
+    .task-link { 
+       background-color: hsl(47, 90%, 60%); 
+       border: 2px solid hsl(47, 90%, 40%); 
+       padding: 0 2px; 
+       line-height: 26px; 
+    } 
+    .task-link[data-href] { 
+       cursor: pointer; 
+    } 
+    .task-link::after { 
+       content: "➤"; 
+       margin-left: 3px; 
+       color: hsl(47, 90%, 40%); 
+    } 
+    a { 
+       color: hsl(196, 100%, 47%); 
+    } 
+    .hilitecolor1 { 
+       background-color: hsl(45, 100%, 70%); 
+    } 
+    .hilitecolor2 { 
+       background-color: hsl(218, 100%, 80%); 
+    } 
+    .hilitecolor3 { 
+       background-color: hsl(150, 100%, 70%); 
+    } 
+    .hilitecolor4 { 
+       background-color: hsl(0, 100%, 70%); 
+    } 
+    .hilitesolution { 
+       background-color: hsl(47, 60%, 70%); 
+       font-style: italic; 
+    } 
+    h1, h2, h3 { 
+      color: hsl(209, 60%, 45%); 
+    } 
+    h1[data-number]:before, h2[data-number]:before, h3[data-number]:before { 
+      content: attr(data-number); 
+      margin-right: 10px; 
+    } 
+    .skill { 
+      line-height: initial; 
+      padding: 7px 0px 3px 0px; 
+      border: 1px solid hsl(0,0%,100%); 
+    } 
+    .skill .skill { 
+      display: inline-block; 
+      margin: 0px 5px 2px 5px; 
+      position: relative; 
+    } 
+    .skill .skill .container { 
+      min-height: 27px; 
+      display: table; 
+      border: 2px solid hsl(0,0%,25%); 
+    } 
+    .skill .skill .container .block { 
+      font-size: 14px; 
+      display: table-cell; 
+      min-width: 19px; 
+      text-align: center; 
+      vertical-align: middle; 
+      padding: 0px 6px 0px 4px; 
+    } 
+    .skill .skill .container .content { 
+      padding: 2px 6px; 
+      font-size: 14px; 
+      display: table-cell; 
+      vertical-align: middle; 
+    } 
+    .skill .skill .container .content span { 
+      margin-left: 1px; 
+      margin-right: 1px; 
+    } 
+    .skill .skill .container .content .text { 
+      vertical-align: -1px; 
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .block { 
+      background-color: hsl(0,0%,25%);  
+      color: hsl(196, 100%, 97%);  
+    } 
+    .skill .skill .container.attr_certificate { 
+      border: 2px solid hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_certificate .block { 
+      background-color: hsl(0, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new { 
+      border: 2px solid hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_new .block { 
+      background-color: hsl(120, 100%, 80%); 
+    } 
+    .skill .skill .container.attr_revision { 
+      border: 2px solid hsl(47, 90%, 60%); 
+    } 
+    .skill .skill .container.attr_revision .block { 
+      background-color: hsl(47, 90%, 60%); 
+    } 
+    .hint .hint { 
+      margin-left: 30px; 
+      margin-bottom: 5px; 
+    } 
+    .header .wrap { 
+      padding-right: 10px; 
+      width: fit-content; 
+      cursor: pointer; 
+      border-bottom: 2px solid hsl(214, 38%, 59%); 
+    } 
+    .header .wrap .icon { 
+      vertical-align: -4px; 
+      margin-right: 3px; 
+    } 
+    .header .wrap .icon svg{ 
+      fill: hsl(214, 38%, 59%); 
+    } 
+  </style> 
+  <script> 
+     window.onload = function() { 
+       if (window.location.hash) { 
+         let id = window.location.hash.substr(1); 
+         let anchor = document.getElementsByClassName(id); 
+         if (anchor[0]) { 
+           let top = anchor[0].offsetTop; 
+           window.scrollTo(0, top); 
+         } 
+       } 
+       let links = document.querySelectorAll(".task-link"); 
+       for (let i = 0; i < links.length; i++) { 
+         links[i].onclick = function(event) { 
+           if (event.target.getAttribute("data-href")) { 
+             window.open(event.target.getAttribute("data-href"), "_self"); 
+           } 
+         } 
+       } 
+    } 
+  </script> 
+</head> 
+<body>
+<div class="text segment" id="1i9n11">
+<h1 data-number="4">Concept-Map ergänzen</h1>
+<p>Ergänzen Sie Ihre Concept-Map um die Begriffe</p>
+</div>
+<div class="skill segment" id="u4hafc">
+<div data-skill="Schleifen" data-uuid="mmxpa2" data-acquired="false" class="skill"><div class="container"><div class="block"></div><div class="content"><span>GAMIFICATION.Schleifen</span></div></div></div>
+<div data-skill="Sequenz" data-uuid="j0783n" data-acquired="false" class="skill"><div class="container"><div class="block"></div><div class="content"><span>GAMIFICATION.Sequenz</span></div></div></div>
+<div data-skill="Block" data-uuid="xvfopw" data-acquired="false" class="skill"><div class="container"><div class="block"></div><div class="content"><span>GAMIFICATION.Block</span></div></div></div>
+<div data-skill="Array" data-uuid="hziabb" data-acquired="false" class="skill"><div class="container"><div class="block"></div><div class="content"><span>GAMIFICATION.Array</span></div></div></div>
+<div data-skill="Index" data-uuid="n9hvdw" data-acquired="false" class="skill"><div class="container"><div class="block"></div><div class="content"><span>GAMIFICATION.Index</span></div></div></div>
+
+</div>
+<div class="text segment" id="effoqv">
+<p>und verknüpfen Sie die neuen Begriffe mit bestehenden Begriffen.&nbsp;</p>
+<p>Da es sich um "Syntax-Begriffe" handelt, können Sie auch die verschiedenen Formen von Java-Syntax für sie eintragen.&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+ 
+</body></html>
